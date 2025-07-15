@@ -1,0 +1,17 @@
+#! /usr/bin/neo
+#? i18n=pt-BR
+
+#! def PI :: 3.14
+
+#> x > 9 ! "Erro de Validação"
+
+# This is a line comment.
+
+## 
+This is a block comment.
+##
+
+###
+ This is a block for documentation comment.
+###
+print "Hello World!"
