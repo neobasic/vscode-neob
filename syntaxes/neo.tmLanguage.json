@@ -216,17 +216,30 @@
 				{
 					"comment": "BUILT-IN MATH FUNCTIONS",
 					"name": "support.function.math.$1.neo",
-					"match": "\\b(abs|round|ceil|floor)\\b"
+					"match": "\\b(round|sin|cos|tan|log|log2|log10)\\b"
 				},
 				{
 					"comment": "BUILT-IN TEXT FUNCTIONS",
 					"name": "support.function.text.$1.neo",
-					"match": "\\b(len|[lr]?trim|contains|find|indexOf)\\b"
+					"match": "\\b(len|[lr]?trim|indexOf)\\b"
 				},
 				{
 					"comment": "BUILT-IN TIME FUNCTIONS",
 					"name": "support.function.time.$1.neo",
-					"match": "\\b(ago|ahead)\\b" 
+					"match": "\\b()\\b" 
+				},
+
+
+
+				{
+					"comment": "BUILT-IN NUMERICAL MODIFIERS",
+					"name": "support.modif.numeric.$1.neo",
+					"match": "\\b(abs|ceil|floor)\\b"
+				},
+				{
+					"comment": "BUILT-IN TEMPORAL MODIFIERS",
+					"name": "support.modif.time.$1.neo",
+					"match": "\\b(year|month|day|week|workday|hour|minute|second|milli|micro|nano|tick|tzone|ago|ahead)\\b"
 				},
 
 
@@ -296,7 +309,7 @@
 				{
 					"comment": "TEMPORAL VALUE CONSTRUCTORS",
 					"name": "constant.language.time.$1.neo",
-					"match": "\\b(Epoch|Yesterday|Today|Now|Tomorrow|Eon)\\b" 
+					"match": "\\b(Epoch|Eon|Yesterday|Today|Now|Tomorrow|LocalDate|LocalDateTime|OffsetDate| OffsetDateTime|ZonedDate|ZonedDateTime)\\b"  
 				}
 			]
 		},
@@ -313,15 +326,6 @@
 		},
 
 
-		"elapse-fractions": {
-			"patterns": [
-				{
-					"comment": "ELAPSE FRACTIONS FOR ATOM LITERALS",
-					"name": "storage.fraction.$1.neo",
-					"match": "\\b(year|month|day|week|workday|hour|minute|second|milli|micro|nano|tick|tzone)\\b"
-				}
-			]
-		},
 
 		"strings": {
 			"name": "string.quoted.double.neo",
