@@ -1,9 +1,9 @@
 #! /usr/bin/neo
-#? i18n=pt-BR
+#! i18n=pt-BR
 
-#! def PI :: 3.14
+#$ defer prop <- $/config.ini
 
-#> x > 9 ! "Erro de Validação"
+#? x <= 100 ! "Erro de Validação">
 
 # This is a line comment.
 
@@ -14,4 +14,17 @@ This is a block comment.
 ###
  This is a block for documentation comment.
 ###
-print "Hello World!"
+const index iota
+
+print "Hello World!" this.name 
+
+enter "Digite um número: ", x
+
+@trace> teste do tracing
+@debug> teste do tracing
+@info> teste do info
+@warn> teste do tracing
+@error> teste do tracing
+@fatal> teste do tracing
+
+

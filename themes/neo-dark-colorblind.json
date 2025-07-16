@@ -258,8 +258,6 @@
   "tokenColors": [
     {
       "scope": [
-        "comment",
-        "punctuation.definition.comment",
         "string.comment"
       ],
       "settings": {
@@ -281,7 +279,6 @@
         "entity.name.constant",
         "variable.other.constant",
         "variable.other.enummember",
-        "variable.language",
         "entity"
       ],
       "settings": {
@@ -325,12 +322,6 @@
       ],
       "settings": {
         "foreground": "#a5d6ff"
-      }
-    },
-    {
-      "scope": "keyword",
-      "settings": {
-        "foreground": "#CB9F1A"
       }
     },
     {
@@ -729,27 +720,6 @@
 
 
 
-
-    {
-      "scope": [
-        "comment.line.pragma.neo",
-        "punctuation.definition.comment.pragma.neo"
-      ],
-      "settings": {
-        "foreground": "#980C6E"
-      }
-    },
-    {
-      "scope": [
-        "meta.pragma.neo"
-      ],
-      "settings": {
-        "foreground": "#F06CC9"
-      }
-    },
-
-
-
     {
       "scope": [
         "comment.line.canary-test.neo",
@@ -766,16 +736,105 @@
       "settings": {
         "foreground": "#ECF44C"
       }
-    }
+    },
+
+
+
+    {
+      "scope": [
+        "comment.line.shell-lookup.neo",
+        "punctuation.definition.comment.shell-lookup.neo"
+      ],
+      "settings": {
+        "foreground": "#6E6E6E"
+      }
+    },
+    {
+      "scope": [
+        "meta.shell-lookup.neo"
+      ],
+      "settings": {
+        "foreground": "#AEAEAE"
+      }
+    },
 
 
 
     
+    {
+      "scope": "keyword",
+      "settings": {
+        "foreground": "#E34646"
+      }
+    },
 
 
 
 
 
+    
+    {
+      "scope": "variable.language",
+      "settings": {
+        "foreground": "#6FEBA5"
+      }
+    },
+
+
+    
+    {
+      "scope": "variable.language.this",
+      "settings": {
+        "foreground": "#B5DB38"
+      }
+    },
+
+
+    
+    {
+      "scope": "variable.language.iota",
+      "settings": {
+        "foreground": "#6FEBA5"
+      }
+    },
+
+
+
+
+
+
+    {
+      "scope": [
+        "punctuation.definition.atom.tweet-tracing.neo",
+        "punctuation.definition.atom.tweet-tracing.begin.neo",
+        "punctuation.definition.atom.tweet-tracing.end.neo"
+      ],
+      "settings": {
+        "foreground": "#F3DC0B"
+      }
+    },
+    {
+      "scope": [
+        "meta.tweet-tracing.neo"
+      ],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "#9A9C40"
+      }
+    },
+    {
+      "scope": [
+        "punctuation.definition.atom.tweet-tracing.trace.neo",
+        "punctuation.definition.atom.tweet-tracing.debug.neo",
+        "punctuation.definition.atom.tweet-tracing.info.neo",
+        "punctuation.definition.atom.tweet-tracing.warn.neo",
+        "punctuation.definition.atom.tweet-tracing.error.neo",
+        "punctuation.definition.atom.tweet-tracing.fatal.neo"
+      ],
+      "settings": {
+        "foreground": "#25C3CB"
+      }
+    }
 
 
 

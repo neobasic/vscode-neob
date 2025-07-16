@@ -14,7 +14,22 @@
 			"include": "#comments"
 		},
 		{
+			"include": "#magic-statements"
+		},
+		{
 			"include": "#keywords"
+		},
+		{
+			"include": "#value-constructors"
+		},
+		{
+			"include": "#language-monads"
+		},
+		{
+			"include": "#reserved-variables"
+		},
+		{
+			"include": "#elapse-fractions"
 		},
 		{
 			"include": "#strings"
@@ -24,6 +39,7 @@
 
 
 	"repository": {
+
         "magic-comments": {
       	  "patterns": [
             {
@@ -45,20 +61,20 @@
 			  }
 			},
             {
-              "name": "comment.line.pragma.neo meta.pragma.neo", 
+              "name": "comment.line.canary-test.neo meta.canary-test.neo", 
 			  "match": "^(#\\?).*(?=$)",
 			  "captures": {
 				"1": {
-					"name": "punctuation.definition.comment.pragma.neo"
+					"name": "punctuation.definition.comment.canary-test.neo"
 				}
 			  }
 			},
             {
-              "name": "comment.line.canary-test.neo meta.canary-test.neo", 
-			  "match": "^(#>).*(?=$)",
+              "name": "comment.line.shell-lookup.neo meta.shell-lookup.neo", 
+			  "match": "^(#\\$).*(?=$)",
 			  "captures": {
 				"1": {
-					"name": "punctuation.definition.comment.canary-test.neo"
+					"name": "punctuation.definition.comment.shell-lookup.neo"
 				}
 			  }
 			}
@@ -103,12 +119,210 @@
             ]
         },
 
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.neo",
-				"match": "\\b(print)\\b"
-			}]
+
+        "magic-statements": {
+			"patterns": [
+				{
+					"name": "punctuation.definition.atom.tweet-tracing.neo",
+					"match": "^(@)(trace|debug|info|warn|error|fatal)(>)(.*)(?=$)",
+					"captures": { 
+						"1": { 
+							"name": "punctuation.definition.atom.tweet-tracing.begin.neo" 
+						},
+						"2": { 
+							"name": "punctuation.definition.atom.tweet-tracing.$2.neo" 
+						},
+						"3": { 
+							"name": "punctuation.definition.atom.tweet-tracing.end.neo" 
+						},
+						"4": { 
+							"name": "meta.tweet-tracing.neo" 
+						} 
+					}
+				}
+			]
 		},
+
+		"keywords": {
+			"patterns": [
+				{
+					"comment": "TOP SENTENCE DECLARATION KEYWORDS",
+					"name": "storage.type.$1.neo",
+					"match": "\\b(const|val|var)\\b"
+				},
+
+
+				{
+					"comment": "FLOW CONTROL KEYWORDS",
+					"name": "keyword.control.flow.$1.neo",
+					"match": "\\b(do|orelse|raise|panic)\\b"
+				},
+				{
+					"comment": "CONDITIONAL CONTROL KEYWORDS",
+					"name": "keyword.control.conditional.$1.neo",
+					"match": "\\b(if|unless)\\b"
+				},
+				{
+					"comment": "LOOPING CONTROL KEYWORDS",
+					"name": "keyword.control.looping.$1.neo",
+					"match": "\\b(loop|times|for|each|step|while|until)\\b"
+				},
+
+
+				{
+					"comment": "TOP SENTENCE DECLARATION KEYWORDS",
+					"name": "storage.type.$1.neo",
+					"match": "\\b(const|val|var)\\b"
+				},
+
+
+				{
+					"comment": "PRIMITIVE LOGICAL DATA TYPES",
+					"name": "storage.type.logic.$1.neo",
+					"match": "\\b(Bool(8|16|32|64|128)?)\\b"
+				},
+				{
+					"comment": "PRIMITIVE NUMERICAL DATA TYPES",
+					"name": "storage.type.numeric.$1.neo",
+					"match": "\\b(Number|Dig|Bit|Oct|Hex|Nibble|Byte|Nat(8|16|32|64|128)?|Int(8|16|32|64|128)?|Bigint|Dec(1|2|3|4|5|6|7|8)?|Money|Bigdec|Real(8|16|32|64|128)?|Bigreal|Ratio(16|32|64|128|256)?|Complex(16|32|64|128|256)?|Quatern(32|64|128|256)?)\\b" 
+				},
+				{
+					"comment": "PRIMITIVE CHARACTER DATA TYPES",
+					"name": "storage.type.char.$1.neo",
+					"match": "\\b(Ascii|Char)\\b"
+				},
+				{
+					"comment": "PRIMITIVE SEQUENCE DATA TYPES",
+					"name": "storage.type.sequence.$1.neo",
+					"match": "\\b(Binary|String|Regex|Inet)\\b" 
+				},
+				{
+					"comment": "PRIMITIVE TEMPORAL DATA TYPES",
+					"name": "storage.type.time.$1.neo",
+					"match": "\\b(Date|Elapse)\\b"
+				},
+				{
+					"comment": "PRIMITIVE MISCELLANEOUS DATA TYPES",
+					"name": "storage.type.other.$1.neo",
+					"match": "\\b(Any|Atom|Uri|Path|File)\\b"
+				},
+				{
+					"comment": "PRIMITIVE COMPOSITE DATA TYPES",
+					"name": "storage.type.composite.$1.neo",
+					"match": "\\b(Range|Map)\\b"
+				},
+
+
+				{
+					"comment": "BUILT-IN MATH FUNCTIONS",
+					"name": "support.function.math.$1.neo",
+					"match": "\\b(abs|round|ceil|floor)\\b"
+				},
+				{
+					"comment": "BUILT-IN TEXT FUNCTIONS",
+					"name": "support.function.text.$1.neo",
+					"match": "\\b(len|[lr]?trim|contains|find|indexOf)\\b"
+				},
+				{
+					"comment": "BUILT-IN TIME FUNCTIONS",
+					"name": "support.function.time.$1.neo",
+					"match": "\\b(ago|ahead)\\b" 
+				},
+
+
+				{
+					"comment": "BUILT-IN CONSOLE MACROS",
+					"name": "support.macro.console.$1.neo",
+					"match": "\\b(at|print|enter|till|since|play|cls)\\b"
+				},
+				{
+					"comment": "BUILT-IN ERROR-HANDLING MACROS",
+					"name": "support.macro.error.$1.neo",
+					"match": "\\b(raise|panic)\\b"
+				},
+
+
+				{
+					"comment": "BOOLEAN OPERATORS",
+					"name": "keyword.operator.boolean.$1.neo",
+					"match": "\\b(not|and|or|xor|nand|nor|nxor)\\b"
+				},
+				{
+					"comment": "MISCELLANEOUS OPERATORS",
+					"name": "keyword.operator.other.$1.neo",
+					"match": "\\b(typeof|instanceof|sizeof|is|in|between|like)\\b"
+				}
+
+
+
+
+			]
+		},
+
+
+		"language-monads": {
+			"patterns": [
+				{
+					"comment": "LANGUAGE OPTIONAL MONAD",
+					"name": "variable.language.option.$1.neo",
+					"match": "\\b(Some|None)\\b"
+				},
+				{
+					"comment": "LANGUAGE RESULT MONAD",
+					"name": "variable.language.result.$1.neo",
+					"match": "\\b(Okay|Fail)\\b"
+				}
+			]
+		},
+
+
+		"value-constructors": {
+			"patterns": [
+				{
+					"comment": "LOGICAL VALUE CONSTRUCTORS",
+					"name": "constant.language.logic.$1.neo",
+					"match": "\\b(False|True)\\b"
+				},
+				{
+					"comment": "NUMERICAL VALUE CONSTRUCTORS",
+					"name": "constant.language.numeric.$1.neo",
+					"match": "\\b(Zero|Nonzero|Minimum|Maximum|NaN|NegativeInfinity|PositiveInfinity)\\b"
+				},
+				{
+					"comment": "SEQUENCE VALUE CONSTRUCTORS",
+					"name": "constant.language.sequence.$1.neo",
+					"match": "\\b(Blank|Nonblank)\\b"
+				},
+				{
+					"comment": "TEMPORAL VALUE CONSTRUCTORS",
+					"name": "constant.language.time.$1.neo",
+					"match": "\\b(Epoch|Yesterday|Today|Now|Tomorrow|Eon)\\b" 
+				}
+			]
+		},
+
+
+		"reserved-variables": {
+			"patterns": [
+				{
+					"comment": "RESERVED LANGUAGE VARIABLES",
+					"name": "variable.language.$1.neo",
+					"match": "\\b(this|iota)\\b"
+				}
+			]
+		},
+
+
+		"elapse-fractions": {
+			"patterns": [
+				{
+					"comment": "ELAPSE FRACTIONS FOR ATOM LITERALS",
+					"name": "storage.fraction.$1.neo",
+					"match": "\\b(year|month|day|week|workday|hour|minute|second|milli|micro|nano|tick|tzone)\\b"
+				}
+			]
+		},
+
 		"strings": {
 			"name": "string.quoted.double.neo",
 			"begin": "\"",
