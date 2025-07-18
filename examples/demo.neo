@@ -25,6 +25,11 @@ enter "Digite um número: ", x
 @info> teste do info
 @warn> teste do tracing
 @error> teste do tracing
-@fatal> teste do tracing
+@> fatal teste do tracing
+
+
+print "Hello World!" this.name
+
+
 
 

@@ -29,9 +29,6 @@
 			"include": "#reserved-variables"
 		},
 		{
-			"include": "#elapse-fractions"
-		},
-		{
 			"include": "#strings"
 		}
 	],
@@ -124,7 +121,7 @@
 			"patterns": [
 				{
 					"name": "punctuation.definition.atom.tweet-tracing.neo",
-					"match": "^(@)(trace|debug|info|warn|error|fatal)(>)(.*)(?=$)",
+					"match": "^(@)(trace|debug|info|warn|error|fatal)?(>)(.*)(?=$)",
 					"captures": { 
 						"1": { 
 							"name": "punctuation.definition.atom.tweet-tracing.begin.neo" 
@@ -327,16 +324,54 @@
 
 
 
-		"strings": {
-			"name": "string.quoted.double.neo",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
+		"strings":  {
+            "patterns": [
 				{
-					"name": "constant.character.escape.neo",
-					"match": "\\\\."
-				}
+					"name": "string.quoted.double.neo",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.neo",
+							"match": "\\\\."
+						}
+					]
+				},
+				{
+					"name": "string.quoted.triple.neo",
+					"begin": "\"\"\"",
+					"end": "\"\"\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.neo",
+							"match": "\\\\."
+						}
+					]
+				},
+				{
+					"name": "string.quoted.single.neo",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{
+							"name": "constant.character.escape.neo",
+							"match": "\\\\."
+						}
+					]
+				},
+				{
+					"name": "string.quoted.single.triple.neo",
+					"begin": "'''",
+					"end": "'''",
+					"patterns": [
+						{
+						"name": "constant.character.escape.neo",
+						"match": "\\\\."
+						}
+					]
+					}
 			]
 		}
+		
 	}
 }

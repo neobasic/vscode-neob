@@ -3,32 +3,36 @@
   "displayName": "NeoBASIC",
   "description": "NeoBASIC language support for Visual Studio Code.",
   "version": "0.0.1",
-	"publisher": "[WE THE DEVS]",
+  "publisher": "[WE THE DEVS]",
   "author": {
     "name": "Raul Bras",
     "url": "https://teknolista.substack.com"
   },
-	"license": "MIT",
+  "license": "MIT",
   "readme": "README.md",
-	"icon": "icon.png",
-	"galleryBanner": {
-		"color": "#1b1f23",
-		"theme": "dark"
-	},
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#1b1f23",
+    "theme": "dark"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:neo"
+  ],
   "homepage": "https://www.neobasic.org",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/neobasic/vscode-neo"
-	},
-	"bugs": {
-		"url": "https://github.com/neobasic/vscode-neo/issues"
-	},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neobasic/vscode-neo"
+  },
+  "bugs": {
+    "url": "https://github.com/neobasic/vscode-neo/issues"
+  },
   "qna": "https://github.com/neobasic/vscode-neo/discussions/categories/q-a",
   "engines": {
-    "vscode": "^1.43.0"
+    "vscode": "^1.80.0"
   },
   "enableTelemetry": false,
-	"keywords": [
+  "keywords": [
     "neobasic",
     "neo",
     "basic",
@@ -37,41 +41,52 @@
     "programming",
     "language",
     "grammar",
-		"syntax",
+    "syntax",
     "highlighting",
-		"theme",
-		"dark",
-		"light",
-		"protanopia",
-		"colorblind"
-	],
+    "theme",
+    "dark",
+    "light",
+    "protanopia",
+    "colorblind"
+  ],
   "categories": [
     "Programming Languages",
     "Themes"
   ],
   "contributes": {
-    "languages": [{
-      "id": "neo",
-      "aliases": ["NeoBASIC", "neobasic", "neo", "basic"],
-      "extensions": [".neo"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "neo",
-      "scopeName": "source.neo",
-      "path": "./syntaxes/neo.tmLanguage.json"
-    }],
+    "languages": [
+      {
+        "id": "neo",
+        "aliases": [
+          "NeoBASIC",
+          "neobasic",
+          "neo",
+          "basic"
+        ],
+        "extensions": [
+          ".neo"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "neo",
+        "scopeName": "source.neo",
+        "path": "./syntaxes/neo.tmLanguage.json"
+      }
+    ],
     "themes": [
-			{
-				"label": "Neo Light (Colorblind)",
-				"uiTheme": "vs",
-				"path": "./themes/neo-light-colorblind.json"
-			},
-			{
-				"label": "Neo Dark (Colorblind)",
-				"uiTheme": "vs-dark",
-				"path": "./themes/neo-dark-colorblind.json"
-			}
+      {
+        "label": "Neo Light (Colorblind)",
+        "uiTheme": "vs",
+        "path": "./themes/neo-light-colorblind.json"
+      },
+      {
+        "label": "Neo Dark (Colorblind)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/neo-dark-colorblind.json"
+      }
     ]
   },
   "capabilities": {
@@ -81,5 +96,12 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "@types/vscode": "^1.102.0",
+    "vscode": "^1.1.34"
   }
 }
