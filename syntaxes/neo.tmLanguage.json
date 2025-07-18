@@ -8,14 +8,15 @@
 
 	"patterns": [
 		{
-			"include": "#magic-comments"
+			"include": "#comments"
 		},
 		{
-			"include": "#comments"
+			"include": "#magic-comments"
 		},
 		{
 			"include": "#magic-statements"
 		},
+
 		{
 			"include": "#keywords"
 		},
@@ -28,6 +29,7 @@
 		{
 			"include": "#reserved-variables"
 		},
+
 		{
 			"include": "#strings"
 		}
@@ -36,6 +38,61 @@
 
 
 	"repository": {
+        "comments": {
+            "patterns": [
+                {
+					"name": "comment.line.number-sign.neo",
+					"begin": "(#)(?![#!?$])",
+					"beginCaptures": { 
+						"1": { 
+							"name": "punctuation.definition.comment.neo"
+						}
+					},
+					"end": "$",
+					"patterns": [
+						{
+						"name": "meta.hashtag.neo",
+						"match": "(?<=^|\\s)(#\\w+)"
+						}
+					]
+				},
+
+                {
+                    "name": "comment.block.neo",
+                    "begin": "##(?!#)",
+                    "end": "##(?!#)",
+                    "captures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.neo"
+                        }
+                    },
+					"patterns": [
+						{
+						"name": "meta.hashtag.neo",
+						"match": "#\\w+"
+						}
+					]
+                },
+
+                {
+                    "name": "comment.block.documentation.neo",
+                    "begin": "###",
+                    "end": "###",
+                    "captures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.neo"
+                        }
+                    },
+					"patterns": [
+						{
+						"name": "meta.hashtag.neo",
+						"match": "#\\w+"
+						}
+					]
+                }
+            ]
+        },
+
 
         "magic-comments": {
       	  "patterns": [
@@ -79,61 +136,6 @@
 		},
 
 
-
-
-        "comments": {
-            "patterns": [
-                {
-					"name": "comment.line.number-sign.neo",
-					"begin": "(#)(?!#)",
-					"beginCaptures": { 
-						"1": { 
-							"name": "punctuation.definition.comment.neo"
-							 }
-					 },
-					"end": "$",
-					"patterns": [
-						{
-						"name": "meta.hashtag.neo",
-						"match": "(?<=^|\\s)(#\\w+)"
-						}
-					]
-				},
-
-                {
-                    "name": "comment.block.neo",
-                    "begin": "##(?!#)",
-                    "end": "##(?!#)",
-                    "captures": {
-                        "0": {
-                            "name": "punctuation.definition.comment.neo"
-                        }
-                    },
-					"patterns": [
-						{
-						"name": "meta.hashtag.neo",
-						"match": "#\\w+"
-						}
-					]
-                },
-                {
-                    "name": "comment.block.documentation.neo",
-                    "begin": "###",
-                    "end": "###",
-                    "captures": {
-                        "0": {
-                            "name": "punctuation.definition.comment.neo"
-                        }
-                    },
-					"patterns": [
-						{
-						"name": "meta.hashtag.neo",
-						"match": "#\\w+"
-						}
-					]
-                }
-            ]
-        },
 
 
         "magic-statements": {
