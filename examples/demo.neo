@@ -1,35 +1,38 @@
 #! /usr/bin/neo
-#! i18n=pt-BR
+#! i18n=pt-BR  # #comentário
 
-#$ defer prop <- $/config.ini
+#$ defer prop <- $/config.ini  # #comentário
 
-#? x <= 100 ! "Erro de Validação">
+#? x <= 100 ! "Erro de Validação">  # #comentário
 
-# This is a line comment.
+# This is a line #hashtag.
 
 ## 
-This is a block comment.
+This is a block comment. #hashtag
 ##
 
+### #teste
+ This is a block for documentation comment. #hashtag
 ###
- This is a block for documentation comment.
-###
+
+#comentario com #varias #hashtags #logoNoInicio
+
+@trace> teste do tracing  # #comentário
+@debug> teste do tracing
+@info> teste do info
+@warn> teste do tracing  # #comentário
+@error> teste do tracing
+@> fatal teste do tracing
+
+
 const index iota
 
 print "Hello World!" this.name 
 
 enter "Digite um número: ", x
 
-@trace> teste do tracing
-@debug> teste do tracing
-@info> teste do info
-@warn> teste do tracing
-@error> teste do tracing
-@> fatal teste do tracing
-
 
 print "Hello World!" this.name
-
 
 
 

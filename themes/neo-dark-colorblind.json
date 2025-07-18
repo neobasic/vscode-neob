@@ -47,6 +47,15 @@
     },
 
 
+    {
+      "scope": [
+        "meta.hashtag.neo"
+      ],
+      "settings": {
+        "foreground": "#8E90E6"
+      }
+    },
+
 
 
 
@@ -128,6 +137,10 @@
         "foreground": "#AEAEAE"
       }
     },
+
+
+
+
 
 
 

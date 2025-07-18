@@ -41,7 +41,7 @@
       	  "patterns": [
             {
               "name": "comment.line.shebang.neo meta.shebang.neo",
-			  "match": "\\A(#!).*(?=$)",
+			  "match": "\\A(#!)[^#\\\\]*(?=\\\\|#|$)",
 			  "captures": {
 				"1": {
 					"name": "punctuation.definition.comment.shebang.neo"
@@ -50,7 +50,7 @@
 			},
             {
               "name": "comment.line.directive.neo meta.directive.neo",
-			  "match": "^(#!).*(?=$)",
+			  "match": "^(#!)[^#\\\\]*(?=\\\\|#|$)",
 			  "captures": {
 				"1": {
 					"name": "punctuation.definition.comment.directive.neo"
@@ -59,7 +59,7 @@
 			},
             {
               "name": "comment.line.canary-test.neo meta.canary-test.neo", 
-			  "match": "^(#\\?).*(?=$)",
+			  "match": "^(#\\?)[^#\\\\]*(?=\\\\|#|$)",
 			  "captures": {
 				"1": {
 					"name": "punctuation.definition.comment.canary-test.neo"
@@ -68,7 +68,7 @@
 			},
             {
               "name": "comment.line.shell-lookup.neo meta.shell-lookup.neo", 
-			  "match": "^(#\\$).*(?=$)",
+			  "match": "^(#\\$)[^#\\\\]*(?=\\\\|#|$)",
 			  "captures": {
 				"1": {
 					"name": "punctuation.definition.comment.shell-lookup.neo"
@@ -85,14 +85,21 @@
             "patterns": [
                 {
 					"name": "comment.line.number-sign.neo",
-					"begin": "#(?!#)",
+					"begin": "(#)(?!#)",
 					"beginCaptures": { 
-						"0": { 
+						"1": { 
 							"name": "punctuation.definition.comment.neo"
 							 }
 					 },
-					"end": "$"
+					"end": "$",
+					"patterns": [
+						{
+						"name": "meta.hashtag.neo",
+						"match": "(?<=^|\\s)(#\\w+)"
+						}
+					]
 				},
+
                 {
                     "name": "comment.block.neo",
                     "begin": "##(?!#)",
@@ -101,7 +108,13 @@
                         "0": {
                             "name": "punctuation.definition.comment.neo"
                         }
-                    }
+                    },
+					"patterns": [
+						{
+						"name": "meta.hashtag.neo",
+						"match": "#\\w+"
+						}
+					]
                 },
                 {
                     "name": "comment.block.documentation.neo",
@@ -111,7 +124,13 @@
                         "0": {
                             "name": "punctuation.definition.comment.neo"
                         }
-                    }
+                    },
+					"patterns": [
+						{
+						"name": "meta.hashtag.neo",
+						"match": "#\\w+"
+						}
+					]
                 }
             ]
         },
@@ -121,7 +140,7 @@
 			"patterns": [
 				{
 					"name": "punctuation.definition.atom.tweet-tracing.neo",
-					"match": "^(@)(trace|debug|info|warn|error|fatal)?(>)(.*)(?=$)",
+					"match": "^(@)([a-zA-Z0-9_]*)?(>)([^#\\\\]*)(?=\\\\|#|$)",
 					"captures": { 
 						"1": { 
 							"name": "punctuation.definition.atom.tweet-tracing.begin.neo" 
