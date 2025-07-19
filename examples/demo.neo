@@ -1,9 +1,9 @@
 #! /usr/bin/neo
-#! i18n=pt-BR  # #comentário
+#! i18n=pt-BR  #comentário
 
-#$ defer prop <- $/config.ini  # #comentário
+#$ defer prop <- $/config.ini  #comentário
 
-#? x <= 100 ! "Erro de Validação">  # #comentário
+#? x <= 100 ! "Erro de Validação">  #comentário
 
 # This is a line #hashtag.
 
@@ -17,12 +17,12 @@ This is a block comment. #hashtag
 
 #comentario com #varias #hashtags #logoNoInicio
 
-@trace> teste do tracing  # #comentário
+@trace> teste do tracing  #comentário qualquer coisa #segundahashtag
 @debug> teste do tracing
 @info> teste do info
-@warn> teste do tracing  # #comentário
+@warn> teste do tracing  #comentário
 @error> teste do tracing
-@> fatal teste do tracing
+@> fatal teste do tracing ## esse é um comentário de #bloco ##
 
 
 const index iota
