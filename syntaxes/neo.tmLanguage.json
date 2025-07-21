@@ -184,33 +184,37 @@
 		"keywords": {
 			"patterns": [
 				{
-					"comment": "TOP SENTENCE DECLARATION KEYWORDS",
-					"name": "storage.type.$1.neo",
-					"match": "\\b(const|val|var)\\b"
+					"comment": "IMPORT CONTROL KEYWORDS",
+					"name": "keyword.control.import.$1.neo",
+					"match": "\\b(use|as|of|include|interface|socket|http|https|rest|soap|grpc|amqp|ftp|smtp|imap|pop3)\\b"
 				},
-
-
 				{
 					"comment": "FLOW CONTROL KEYWORDS",
 					"name": "keyword.control.flow.$1.neo",
-					"match": "\\b(do|orelse|raise|panic)\\b"
+					"match": "\\b(do|with|defer|next|redo|break|retry|orelse|continue|fallthrough|return|yield|go|to|switch|when|default|await|async|thread|task|node)\\b"
 				},
 				{
 					"comment": "CONDITIONAL CONTROL KEYWORDS",
 					"name": "keyword.control.conditional.$1.neo",
-					"match": "\\b(if|unless)\\b"
+					"match": "\\b(if|then|else|unless|case|match|try|catch)\\b"
 				},
 				{
 					"comment": "LOOPING CONTROL KEYWORDS",
 					"name": "keyword.control.looping.$1.neo",
 					"match": "\\b(loop|times|for|each|step|while|until)\\b"
 				},
+				{
+					"comment": "TESTING CONTROL KEYWORDS",
+					"name": "keyword.control.test.$1.neo",
+					"match": "\\b(invar|unit|from|once|data|call|hide|show|into|pass|past|fail)\\b"
+				},
+
 
 
 				{
 					"comment": "TOP SENTENCE DECLARATION KEYWORDS",
 					"name": "storage.type.$1.neo",
-					"match": "\\b(const|val|var)\\b"
+					"match": "\\b(module|const|val|var|let|type|def|defn|undef|fact|feed|fmap|func|sub|rpc|extern|event|enum|struct|proto|trait|class|get|set)\\b"
 				},
 
 
@@ -225,6 +229,11 @@
 					"match": "\\b(Number|Dig|Bit|Oct|Hex|Nibble|Byte|Nat(8|16|32|64|128)?|Int(8|16|32|64|128)?|Bigint|Dec(1|2|3|4|5|6|7|8)?|Money|Bigdec|Real(8|16|32|64|128)?|Bigreal|Ratio(16|32|64|128|256)?|Complex(16|32|64|128|256)?|Quatern(32|64|128|256)?)\\b" 
 				},
 				{
+					"comment": "PRIMITIVE TEMPORAL DATA TYPES",
+					"name": "storage.type.time.$1.neo",
+					"match": "\\b(Date|Elapse)\\b"
+				},
+				{
 					"comment": "PRIMITIVE CHARACTER DATA TYPES",
 					"name": "storage.type.char.$1.neo",
 					"match": "\\b(Ascii|Char)\\b"
@@ -235,19 +244,24 @@
 					"match": "\\b(Binary|String|Regex|Inet)\\b" 
 				},
 				{
-					"comment": "PRIMITIVE TEMPORAL DATA TYPES",
-					"name": "storage.type.time.$1.neo",
-					"match": "\\b(Date|Elapse)\\b"
+					"comment": "PRIMITIVE SHELL DATA TYPES",
+					"name": "storage.type.sequence.$1.neo",
+					"match": "\\b(Path|Uri|Inet)\\b" 
 				},
 				{
 					"comment": "PRIMITIVE MISCELLANEOUS DATA TYPES",
 					"name": "storage.type.other.$1.neo",
-					"match": "\\b(Any|Atom|Uri|Path|File)\\b"
+					"match": "\\b(Any|Void|Atom|)\\b"
 				},
 				{
 					"comment": "PRIMITIVE COMPOSITE DATA TYPES",
 					"name": "storage.type.composite.$1.neo",
 					"match": "\\b(Range|Map)\\b"
+				},
+				{
+					"comment": "PRIMITIVE ARRAY DATA TYPES",
+					"name": "storage.type.composite.$1.neo",
+					"match": "\\b(Array|Tuple|List|Dict|Chan|Vec|Mat|Set|Queue|Deque|Xml|Table|Memo)\\b"
 				},
 
 
@@ -275,22 +289,47 @@
 					"match": "\\b(abs|ceil|floor)\\b"
 				},
 				{
+					"comment": "BUILT-IN TEXT MODIFIERS",
+					"name": "support.modif.text.$1.neo",
+					"match": "\\b(upper|lower|titled|trim|ltrim|rtrim|pascal|camel|snake|kebab)\\b"
+				},
+				{
 					"comment": "BUILT-IN TEMPORAL MODIFIERS",
 					"name": "support.modif.time.$1.neo",
 					"match": "\\b(year|month|day|week|workday|hour|minute|second|milli|micro|nano|tick|tzone|ago|ahead)\\b"
 				},
+				{
+					"comment": "BUILT-IN FACT MODIFIERS",
+					"name": "support.modif.fact.$1.neo",
+					"match": "\\b(all|any|one|two|nil)\\b"
+				},
+
+
+
+				{
+					"comment": "BUILT-IN SHELL FACTS",
+					"name": "support.fact.shell.$1.neo",
+					"match": "\\b(exist|ready)\\b"
+				},
+
 
 
 				{
 					"comment": "BUILT-IN CONSOLE MACROS",
 					"name": "support.macro.console.$1.neo",
-					"match": "\\b(at|print|enter|till|since|play|cls)\\b"
+					"match": "\\b(at|enter|entry|print|alert|till|since|timely|cancel|play|cls)\\b"  
+				},
+				{
+					"comment": "BUILT-IN SHELL MACROS",
+					"name": "support.macro.shell.$1.neo",
+					"match": "\\b(cd|pwd|ls|mkdir|rmdir|touch|rm|cp|mv|rename|chmod|chown|chgrp)\\b"  
 				},
 				{
 					"comment": "BUILT-IN ERROR-HANDLING MACROS",
 					"name": "support.macro.error.$1.neo",
 					"match": "\\b(raise|panic)\\b"
 				},
+
 
 
 				{
@@ -301,7 +340,7 @@
 				{
 					"comment": "MISCELLANEOUS OPERATORS",
 					"name": "keyword.operator.other.$1.neo",
-					"match": "\\b(typeof|instanceof|sizeof|is|in|between|like)\\b"
+					"match": "\\b(typeof|instanceof|sizeof|is|in|between|like|new|del)\\b"
 				}
 
 
@@ -314,14 +353,24 @@
 		"language-monads": {
 			"patterns": [
 				{
-					"comment": "LANGUAGE OPTIONAL MONAD",
-					"name": "variable.language.option.$1.neo",
+					"comment": "LANGUAGE MAYBE OPTIONAL MONAD",
+					"name": "variable.language.maybe.$1.neo",
 					"match": "\\b(Some|None)\\b"
 				},
 				{
-					"comment": "LANGUAGE RESULT MONAD",
+					"comment": "LANGUAGE RESULT OPTIONAL MONAD",
 					"name": "variable.language.result.$1.neo",
 					"match": "\\b(Okay|Fail)\\b"
+				},
+				{
+					"comment": "LANGUAGE STREAM OPTIONAL MONAD",
+					"name": "variable.language.stream.$1.neo",
+					"match": "\\b(Data|EOT)\\b"
+				},
+				{
+					"comment": "LANGUAGE EITHER OPTIONAL MONAD",
+					"name": "variable.language.either.$1.neo",
+					"match": "\\b(Yea|Nay)\\b"
 				}
 			]
 		},
@@ -337,7 +386,7 @@
 				{
 					"comment": "NUMERICAL VALUE CONSTRUCTORS",
 					"name": "constant.language.numeric.$1.neo",
-					"match": "\\b(Zero|Nonzero|Minimum|Maximum|NaN|NegativeInfinity|PositiveInfinity)\\b"
+					"match": "\\b(Zero|Nonzero|MinValue|MaxValue|NaN|NegativeInfinity|PositiveInfinity)\\b"
 				},
 				{
 					"comment": "SEQUENCE VALUE CONSTRUCTORS",
@@ -347,7 +396,22 @@
 				{
 					"comment": "TEMPORAL VALUE CONSTRUCTORS",
 					"name": "constant.language.time.$1.neo",
-					"match": "\\b(Epoch|Eon|Yesterday|Today|Now|Tomorrow|LocalDate|LocalDateTime|OffsetDate| OffsetDateTime|ZonedDate|ZonedDateTime)\\b"  
+					"match": "\\b(Epoch|Eon|Yesterday|Today|Now|Tomorrow|LocalDate|LocalDateTime|OffsetDate| OffsetDateTime|ZonedDate|ZonedDateTime)\\b"
+				},
+				{
+					"comment": "FILESYSTEM VALUE CONSTRUCTORS",
+					"name": "constant.language.path.$1.neo",
+					"match": "\\b(Folder|File|LinkFile|PipeFile|SocketFile|BlockDevice|CharDevice|NullDevice)\\b"  
+				},
+				{
+					"comment": "INET VALUE CONSTRUCTORS",
+					"name": "constant.language.inet.$1.neo",
+					"match": "\\b(Ipv4|Ipv6)\\b"  
+				},
+				{
+					"comment": "URI VALUE CONSTRUCTORS",
+					"name": "constant.language.uri.$1.neo",
+					"match": "\\b(Url|Urn)\\b"  
 				}
 			]
 		},
@@ -358,7 +422,7 @@
 				{
 					"comment": "RESERVED LANGUAGE VARIABLES",
 					"name": "variable.language.$1.neo",
-					"match": "\\b(this|iota)\\b"
+					"match": "\\b(this|iota|nth|one|end|it|self|super)\\b"
 				}
 			]
 		},

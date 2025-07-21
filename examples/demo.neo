@@ -36,3 +36,22 @@ print "Hello World!" this.name
 
 
 
+@Public class Block
+public
+    sprite Sprite                         # Como o bloco aparece na tela
+    isDestroyed bool = False              # Se foi destruído ou não
+    points int = 10                       # Quantos pontos vale
+
+    destroy() => isDestroyed = True       # Marcar como destruído 
+    getBounds() FloatRect                 # Área de colisão
+    draw(window RenderWindow)             # Desenhar na tela 
+
+
+class Block
+  +sprite Sprite                    # Como o bloco aparece na tela
+  +isDestroyed bool = False         # Se foi destruído ou não
+  +points int = 10                  # Quantos pontos vale
+    
+  +destroy() => isDestroyed = True  # Marcar como destruído 
+  +getBounds() FloatRect            # Área de colisão
+  +draw(RenderWindow& window)       # Desenhar na tela
