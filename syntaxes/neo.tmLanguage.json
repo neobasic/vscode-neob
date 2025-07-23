@@ -17,6 +17,7 @@
 			"include": "#magic-statements"
 		},
 
+
 		{
 			"include": "#keywords"
 		},
@@ -29,6 +30,10 @@
 		{
 			"include": "#reserved-variables"
 		},
+		{
+			"include": "#operators"
+		},
+
 
 		{
 			"include": "#strings"
@@ -135,20 +140,20 @@
 			  }
 			},
             {
-              "name": "comment.line.canary-test.neo meta.canary-test.neo", 
+              "name": "comment.line.woodstock.neo meta.woodstock.neo", 
 			  "match": "^(#\\?)[^#\\\\]*(?=\\\\|#|$)",
 			  "captures": {
 				"1": {
-					"name": "punctuation.definition.comment.canary-test.neo"
+					"name": "punctuation.definition.comment.woodstock.neo"
 				}
 			  }
 			},
             {
-              "name": "comment.line.shell-lookup.neo meta.shell-lookup.neo", 
+              "name": "comment.line.sherlock.neo meta.sherlock.neo", 
 			  "match": "^(#\\$)[^#\\\\]*(?=\\\\|#|$)",
 			  "captures": {
 				"1": {
-					"name": "punctuation.definition.comment.shell-lookup.neo"
+					"name": "punctuation.definition.comment.sherlock.neo"
 				}
 			  }
 			}
@@ -161,20 +166,38 @@
         "magic-statements": {
 			"patterns": [
 				{
-					"name": "punctuation.definition.atom.tweet-tracing.neo",
+					"name": "punctuation.definition.atom.rubber-duck.neo",
+					"match": "^(@)([a-zA-Z0-9_]*)?(=)([^#\\\\]*)(?=\\\\|#|$)",
+					"captures": {
+						"1": { 
+							"name": "punctuation.definition.atom.rubber-duck.begin.neo" 
+						},
+						"2": { 
+							"name": "punctuation.definition.atom.rubber-duck.$2.neo" 
+						},
+						"3": { 
+							"name": "punctuation.definition.atom.rubber-duck.end.neo" 
+						},
+						"4": { 
+							"name": "meta.rubber-duck.neo" 
+						}
+					}
+				},
+				{
+					"name": "punctuation.definition.atom.tracer-bird.neo",
 					"match": "^(@)([a-zA-Z0-9_]*)?(>)([^#\\\\]*)(?=\\\\|#|$)",
 					"captures": { 
 						"1": { 
-							"name": "punctuation.definition.atom.tweet-tracing.begin.neo" 
+							"name": "punctuation.definition.atom.tracer-bird.begin.neo" 
 						},
 						"2": { 
-							"name": "punctuation.definition.atom.tweet-tracing.$2.neo" 
+							"name": "punctuation.definition.atom.tracer-bird.$2.neo" 
 						},
 						"3": { 
-							"name": "punctuation.definition.atom.tweet-tracing.end.neo" 
+							"name": "punctuation.definition.atom.tracer-bird.end.neo" 
 						},
 						"4": { 
-							"name": "meta.tweet-tracing.neo" 
+							"name": "meta.tracer-bird.neo" 
 						} 
 					}
 				}
@@ -226,7 +249,7 @@
 				{
 					"comment": "PRIMITIVE NUMERICAL DATA TYPES",
 					"name": "storage.type.numeric.$1.neo",
-					"match": "\\b(Number|Dig|Bit|Oct|Hex|Nibble|Byte|Nat(8|16|32|64|128)?|Int(8|16|32|64|128)?|Bigint|Dec(1|2|3|4|5|6|7|8)?|Money|Bigdec|Real(8|16|32|64|128)?|Bigreal|Ratio(16|32|64|128|256)?|Complex(16|32|64|128|256)?|Quatern(32|64|128|256)?)\\b" 
+					"match": "\\b(Number|Dig|Bit|Oct|Hex|Nibble|Byte|Nat(8|16|32|64|128)?|Bignat|Int(8|16|32|64|128)?|Bigint|Real(8|16|32|64|128)?|Bigreal|Dec(1|2|3|4|5|6|7|8)?|Money|Bigdec|Ratio(16|32|64|128|256)?|Complex(16|32|64|128|256)?|Quatern(32|64|128|256)?)\\b" 
 				},
 				{
 					"comment": "PRIMITIVE TEMPORAL DATA TYPES",
@@ -241,7 +264,7 @@
 				{
 					"comment": "PRIMITIVE SEQUENCE DATA TYPES",
 					"name": "storage.type.sequence.$1.neo",
-					"match": "\\b(Binary|String|Regex|Inet)\\b" 
+					"match": "\\b(Str|Regex|Binary)\\b" 
 				},
 				{
 					"comment": "PRIMITIVE SHELL DATA TYPES",
@@ -280,6 +303,11 @@
 					"name": "support.function.time.$1.neo",
 					"match": "\\b()\\b" 
 				},
+				{
+					"comment": "BUILT-IN STANDARD FUNCTIONS",
+					"name": "support.function.stdl.$1.neo",
+					"match": "\\b(enter|print)\\b" 
+				},
 
 
 
@@ -317,7 +345,7 @@
 				{
 					"comment": "BUILT-IN CONSOLE MACROS",
 					"name": "support.macro.console.$1.neo",
-					"match": "\\b(at|enter|entry|print|alert|till|since|timely|cancel|play|cls)\\b"  
+					"match": "\\b(at|scan|entry|echo|alert|till|since|timely|cancel|play|cls)\\b"  
 				},
 				{
 					"comment": "BUILT-IN SHELL MACROS",
@@ -353,24 +381,24 @@
 		"language-monads": {
 			"patterns": [
 				{
-					"comment": "LANGUAGE MAYBE OPTIONAL MONAD",
-					"name": "variable.language.maybe.$1.neo",
-					"match": "\\b(Some|None)\\b"
-				},
-				{
 					"comment": "LANGUAGE RESULT OPTIONAL MONAD",
 					"name": "variable.language.result.$1.neo",
 					"match": "\\b(Okay|Fail)\\b"
 				},
 				{
-					"comment": "LANGUAGE STREAM OPTIONAL MONAD",
-					"name": "variable.language.stream.$1.neo",
-					"match": "\\b(Data|EOT)\\b"
+					"comment": "LANGUAGE MAYBE OPTIONAL MONAD",
+					"name": "variable.language.maybe.$1.neo",
+					"match": "\\b(Some|None)\\b"
 				},
 				{
 					"comment": "LANGUAGE EITHER OPTIONAL MONAD",
 					"name": "variable.language.either.$1.neo",
 					"match": "\\b(Yea|Nay)\\b"
+				},
+				{
+					"comment": "LANGUAGE STREAM OPTIONAL MONAD",
+					"name": "variable.language.stream.$1.neo",
+					"match": "\\b(Data|EoT)\\b"
 				}
 			]
 		},
@@ -389,14 +417,19 @@
 					"match": "\\b(Zero|Nonzero|MinValue|MaxValue|NaN|NegativeInfinity|PositiveInfinity)\\b"
 				},
 				{
+					"comment": "TEMPORAL VALUE CONSTRUCTORS",
+					"name": "constant.language.time.$1.neo",
+					"match": "\\b(Epoch|Eon|Yesterday|Today|Now|Tomorrow|LocalDate|LocalDateTime|OffsetDate|OffsetDateTime|ZonedDate|ZonedDateTime)\\b"
+				},
+				{
+					"comment": "CHARACTER VALUE CONSTRUCTORS",
+					"name": "constant.language.time.$1.neo",
+					"match": "\\b(Letter|Mark|Digit|Punctuation|Symbol|Separator|Other|NonPrintable|Null|)\\b"
+				},
+				{
 					"comment": "SEQUENCE VALUE CONSTRUCTORS",
 					"name": "constant.language.sequence.$1.neo",
 					"match": "\\b(Blank|Nonblank)\\b"
-				},
-				{
-					"comment": "TEMPORAL VALUE CONSTRUCTORS",
-					"name": "constant.language.time.$1.neo",
-					"match": "\\b(Epoch|Eon|Yesterday|Today|Now|Tomorrow|LocalDate|LocalDateTime|OffsetDate| OffsetDateTime|ZonedDate|ZonedDateTime)\\b"
 				},
 				{
 					"comment": "FILESYSTEM VALUE CONSTRUCTORS",
@@ -427,6 +460,48 @@
 			]
 		},
 
+
+		"operators": {
+			"comment": "NOTE THAT THE ORDER HERE IS VERY IMPORTANT!",
+			"patterns": [
+				{
+					"match": "<\\-",
+					"name": "keyword.operator.channel.neo"
+				},
+				{
+					"match": "\\-\\-",
+					"name": "keyword.operator.decrement.neo"
+				},
+				{
+					"match": "\\+\\+",
+					"name": "keyword.operator.increment.neo"
+				},
+				{
+					"match": "(==|!=|<=|>=|<(?!<)|>(?!>))",
+					"name": "keyword.operator.comparison.neo"
+				},
+				{
+					"match": "(=|\\+=|\\-=|\\|=|\\^=|\\*=|/=|:=|%=|<<=|>>=|&\\^=|&=)",
+					"name": "keyword.operator.assignment.neo"
+				},
+				{
+					"match": "(\\+|\\-|\\*|/|%)",
+					"name": "keyword.operator.arithmetic.neo"
+				},
+				{
+					"match": "(\\+|\\-|\\*|/|%)",
+					"name": "keyword.operator.arithmetic.neo"
+				},
+				{
+					"match": "(&(?!\\^)|\\||\\^|&\\^|<<|>>|\\~)",
+					"name": "keyword.operator.arithmetic.bitwise.neo"
+				},
+				{
+					"match": "\\.\\.\\.",
+					"name": "keyword.operator.ellipsis.neo"
+				}
+			]
+		},
 
 
 		"strings":  {

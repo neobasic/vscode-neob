@@ -100,8 +100,8 @@
 
     {
       "scope": [
-        "comment.line.canary-test.neo",
-        "punctuation.definition.comment.canary-test.neo"
+        "comment.line.woodstock.neo",
+        "punctuation.definition.comment.woodstock.neo"
       ],
       "settings": {
         "foreground": "#82880B"
@@ -109,7 +109,7 @@
     },
     {
       "scope": [
-        "meta.canary-test.neo"
+        "meta.woodstock.neo"
       ],
       "settings": {
         "foreground": "#ECF44C"
@@ -120,8 +120,8 @@
 
     {
       "scope": [
-        "comment.line.shell-lookup.neo",
-        "punctuation.definition.comment.shell-lookup.neo"
+        "comment.line.sherlock.neo",
+        "punctuation.definition.comment.sherlock.neo"
       ],
       "settings": {
         "foreground": "#6E6E6E"
@@ -129,7 +129,7 @@
     },
     {
       "scope": [
-        "meta.shell-lookup.neo"
+        "meta.sherlock.neo"
       ],
       "settings": {
         "foreground": "#AEAEAE"
@@ -141,11 +141,45 @@
 
 
 
+
     {
       "scope": [
-        "punctuation.definition.atom.tweet-tracing.neo",
-        "punctuation.definition.atom.tweet-tracing.begin.neo",
-        "punctuation.definition.atom.tweet-tracing.end.neo"
+        "punctuation.definition.atom.rubber-duck"
+      ],
+      "settings": {
+        "foreground": "#D9EE36"
+      }
+    },
+
+    {
+      "scope": [
+        "punctuation.definition.atom.rubber-duck.neo",
+        "punctuation.definition.atom.rubber-duck.begin.neo",
+        "punctuation.definition.atom.rubber-duck.end.neo"
+      ],
+      "settings": {
+        "foreground": "#DB5B6F"
+      }
+    },
+    {
+      "scope": [
+        "meta.rubber-duck.neo"
+      ],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "#2DDD68"
+      }
+    },
+
+
+
+
+
+    {
+      "scope": [
+        "punctuation.definition.atom.tracer-bird.neo",
+        "punctuation.definition.atom.tracer-bird.begin.neo",
+        "punctuation.definition.atom.tracer-bird.end.neo"
       ],
       "settings": {
         "foreground": "#0B83F3"
@@ -153,7 +187,7 @@
     },
     {
       "scope": [
-        "meta.tweet-tracing.neo"
+        "meta.tracer-bird.neo"
       ],
       "settings": {
         "fontStyle": "italic",
@@ -162,12 +196,12 @@
     },
     {
       "scope": [
-        "punctuation.definition.atom.tweet-tracing.trace.neo",
-        "punctuation.definition.atom.tweet-tracing.debug.neo",
-        "punctuation.definition.atom.tweet-tracing.info.neo",
-        "punctuation.definition.atom.tweet-tracing.warn.neo",
-        "punctuation.definition.atom.tweet-tracing.error.neo",
-        "punctuation.definition.atom.tweet-tracing.fatal.neo"
+        "punctuation.definition.atom.tracer-bird.trace.neo",
+        "punctuation.definition.atom.tracer-bird.debug.neo",
+        "punctuation.definition.atom.tracer-bird.info.neo",
+        "punctuation.definition.atom.tracer-bird.warn.neo",
+        "punctuation.definition.atom.tracer-bird.error.neo",
+        "punctuation.definition.atom.tracer-bird.fatal.neo"
       ],
       "settings": {
         "foreground": "#25C3CB"

@@ -17,6 +17,8 @@ This is a block comment. #hashtag
 
 #comentario com #varias #hashtags #logoNoInicio
 
+@okokok= var x = y + 99
+
 @trace> teste do tracing  #comentário qualquer coisa #segundahashtag
 @debug> teste do tracing
 @info> teste do info
