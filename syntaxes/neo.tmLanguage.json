@@ -477,23 +477,71 @@
 					"name": "keyword.operator.increment.neo"
 				},
 				{
+					"match": "~~",
+					"name": "keyword.operator.negation.neo"
+				},
+				{
+					"match": "(\\^\\^|\\^(?!\\^))",
+					"name": "keyword.operator.sort.neo"
+				},
+				{
+					"match": "(===|=)",
+					"name": "keyword.operator.clone.neo"
+				},
+				{
+					"match": "\\|>",
+					"name": "keyword.operator.pipeline.neo"
+				},
+				{
+					"match": "=>>",
+					"name": "keyword.operator.bind.neo"
+				},
+				{
+					"match": "->(?!>)",
+					"name": "keyword.operator.subtype.neo"
+				},
+				{
+					"match": "=>(?!>)",
+					"name": "keyword.operator.implicit-return.neo"
+				},
+				{
+					"match": "`",
+					"name": "keyword.operator.fmap.neo"
+				},
+				{
+					"match": ";",
+					"name": "keyword.operator.modifier.neo"
+				},
+				{
+					"match": "(&>|&&|&(?![&>^=\\s]))",
+					"name": "keyword.operator.thread.neo"
+				},
+				{
 					"match": "(==|!=|<=|>=|<(?!<)|>(?!>))",
+					"name": "keyword.operator.relational.neo"
+				},
+				{
+					"match": "(\\?%|!%|<=>|\\?:)",
 					"name": "keyword.operator.comparison.neo"
 				},
 				{
-					"match": "(=|\\+=|\\-=|\\|=|\\^=|\\*=|/=|:=|%=|<<=|>>=|&\\^=|&=)",
+					"match": "(!!|!\\?|!(?![=%?!|])|\\?\\?|\\?(?![?%:]))",
+					"name": "keyword.operator.coalescing.neo"
+				},
+				{
+					"match": "(>>>=|<<=|>>=|::|:=|<<-|<-|<\\||\\*\\*=|\\*/=|\\*=|/=|%%=|÷=|%\\+=|%-=|%=|\\+=|-=|&\\^=|&=|\\^=|\\|=|=)",
 					"name": "keyword.operator.assignment.neo"
 				},
 				{
-					"match": "(\\+|\\-|\\*|/|%)",
+					"match": "(\\+|\\-|\\*|/|\\\\\\\\|÷|%|\\*\\*|\\*/|\\*!)",
 					"name": "keyword.operator.arithmetic.neo"
 				},
 				{
-					"match": "(\\+|\\-|\\*|/|%)",
-					"name": "keyword.operator.arithmetic.neo"
+					"match": "(%[\\*/\\+\\-\\^])",
+					"name": "keyword.operator.arithmetic.percentage.neo"
 				},
 				{
-					"match": "(&(?!\\^)|\\||\\^|&\\^|<<|>>|\\~)",
+					"match": "(&(?!\\^)|&\\^|\\^|\\||<<|>>|>>>|\\~)",
 					"name": "keyword.operator.arithmetic.bitwise.neo"
 				},
 				{
@@ -502,7 +550,6 @@
 				}
 			]
 		},
-
 
 		"strings":  {
             "patterns": [
