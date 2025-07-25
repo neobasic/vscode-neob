@@ -455,7 +455,7 @@
 				{
 					"comment": "RESERVED LANGUAGE VARIABLES",
 					"name": "variable.language.$1.neo",
-					"match": "\\b(this|iota|nth|one|end|it|self|super)\\b"
+					"match": "\\b(this|iota|its|top|end|it|self|super)\\b"
 				}
 			]
 		},
@@ -487,6 +487,18 @@
 				{
 					"match": "(===|=)",
 					"name": "keyword.operator.clone.neo"
+				},
+				{
+					"match": ":",
+					"name": "keyword.operator.mapping.neo"
+				},
+				{
+					"match": "(\\.\\.\\.)",
+					"name": "keyword.operator.ellipsis.neo"
+				},
+				{
+					"match": "(>?(\\.\\.)(?!\\.)<?)",
+					"name": "keyword.operator.interval.neo"
 				},
 				{
 					"match": "\\|>",
