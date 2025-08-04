@@ -68,28 +68,16 @@
     },
     {
       "scope": [
-        "meta.shebang.neo"
+        "meta.interpreter-directive.neo"
       ],
       "settings": {
         "foreground": "#00ffff"
       }
     },
 
-
-
-
     {
       "scope": [
-        "comment.line.directive.neo",
-        "punctuation.definition.comment.directive.neo"
-      ],
-      "settings": {
-        "foreground": "#0C2398"
-      }
-    },
-    {
-      "scope": [
-        "meta.directive.neo"
+        "meta.pragma-directive.neo"
       ],
       "settings": {
         "foreground": "#7DBCEA"
@@ -109,7 +97,7 @@
     },
     {
       "scope": [
-        "meta.woodstock.neo"
+        "meta.canary-test.neo"
       ],
       "settings": {
         "foreground": "#ECF44C"
@@ -129,7 +117,7 @@
     },
     {
       "scope": [
-        "meta.sherlock.neo"
+        "meta.shell-lookup.neo"
       ],
       "settings": {
         "foreground": "#AEAEAE"
@@ -218,6 +206,73 @@
         "foreground": "#E346C9"
       }
     },
+    
+    {
+      "scope": "keyword.control",
+      "settings": {
+        "foreground": "#E346C9"
+      }
+    },
+    
+
+    {
+      "scope": "support.function",
+      "settings": {
+        "foreground": "#E346C9"
+      }
+    },
+    {
+      "scope": "support.converter",
+      "settings": {
+        "foreground": "#E346C9"
+      }
+    },
+    {
+      "scope": "support.fact",
+      "settings": {
+        "foreground": "#E346C9"
+      }
+    },
+    {
+      "scope": "support.macro",
+      "settings": {
+        "foreground": "#E346C9"
+      }
+    },
+
+    
+
+
+    {
+      "scope": "storage.type",
+      "settings": {
+        "foreground": "#E346C9"
+      }
+    },
+    {
+      "scope": "constant.language",
+      "settings": {
+        "foreground": "#E346C9"
+      }
+    },
+
+
+
+
+
+
+    {
+      "scope": "keyword.operator",
+      "settings": {
+        "foreground": "#D0BB44"
+      }
+    },
+
+
+
+
+
+
 
 
 
@@ -230,7 +285,13 @@
         "foreground": "#6FEBA5"
       }
     },
-
+    
+    {
+      "scope": "variable.other.constant",
+      "settings": {
+        "foreground": "#6FEBA5"
+      }
+    },
 
     
     {

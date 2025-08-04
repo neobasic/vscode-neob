@@ -27,7 +27,7 @@ This is a block comment. #hashtag
 @> fatal teste do tracing ## esse é um comentário de #bloco ##
 
 
-const index iota
+const index = iota
 
 print "Hello World!" this.name 
 

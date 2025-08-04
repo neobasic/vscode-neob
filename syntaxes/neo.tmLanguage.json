@@ -2,209 +2,191 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "NeoBASIC",
 	"scopeName": "source.neo",
-	"fileTypes": ["neo"],
-
-
-
+	"fileTypes": [ "neo" ],
 	"patterns": [
-		{
-			"include": "#comments"
-		},
-		{
-			"include": "#magic-comments"
-		},
-		{
-			"include": "#magic-statements"
-		},
-
-
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#value-constructors"
-		},
-		{
-			"include": "#language-monads"
-		},
-		{
-			"include": "#reserved-variables"
-		},
-		{
-			"include": "#operators"
-		},
-
-
-		{
-			"include": "#strings"
-		}
+		{ "include": "#directives" },
+		{ "include": "#declarations" },
+		{ "include": "#statements" },
+		{ "include": "#comments" }
 	],
-
-
-
 	"repository": {
-        "comments": {
-            "patterns": [
-                {
+		"directives": {
+			"patterns": [ { "include": "#magic-comments" } ]
+		},
+		"declarations": {
+			"patterns": [
+				{ "include": "#module-clause" },
+				{ "include": "#const-clause" }
+			]
+		},
+		"statements": {
+			"patterns": [ { "include": "#magic-statements" } ]
+		},
+		"comments": {
+			"patterns": [
+				{
 					"name": "comment.line.number-sign.neo",
 					"begin": "(#)(?=\\w)(\\w+)",
-					"beginCaptures": { 
-						"1": { 
-							"name": "punctuation.definition.comment.neo meta.hashtag.neo"
-						},
-						"2": { 
-							"name": "meta.hashtag.neo"
-						} 
+					"beginCaptures": {
+						"1": { "name": "punctuation.definition.comment.neo meta.hashtag.neo" },
+						"2": { "name": "meta.hashtag.neo" }
 					},
 					"end": "$",
 					"patterns": [
 						{
-						"name": "meta.hashtag.neo",
-						"match": "#\\w+"
+							"name": "meta.hashtag.neo",
+							"match": "#\\w+"
 						}
 					]
 				},
-
-                {
+				{
 					"name": "comment.line.number-sign.neo",
 					"begin": "(#)(?![#!?$])",
-					"beginCaptures": { 
-						"1": { 
-							"name": "punctuation.definition.comment.neo"
-						}
-					},
+					"beginCaptures": { "1": { "name": "punctuation.definition.comment.neo" } },
 					"end": "$",
 					"patterns": [
 						{
-						"name": "meta.hashtag.neo",
-						"match": "#\\w+"
+							"name": "meta.hashtag.neo",
+							"match": "#\\w+"
 						}
 					]
 				},
-
-                {
-                    "name": "comment.block.neo",
-                    "begin": "##(?!#)",
-                    "end": "##(?!#)",
-                    "captures": {
-                        "0": {
-                            "name": "punctuation.definition.comment.neo"
-                        }
-                    },
+				{
+					"name": "comment.block.neo",
+					"begin": "##(?!#)",
+					"end": "##(?!#)",
+					"captures": { "0": { "name": "punctuation.definition.comment.neo" } },
 					"patterns": [
 						{
-						"name": "meta.hashtag.neo",
-						"match": "#\\w+"
+							"name": "meta.hashtag.neo",
+							"match": "#\\w+"
 						}
 					]
-                },
-
-                {
-                    "name": "comment.block.documentation.neo",
-                    "begin": "###",
-                    "end": "###",
-                    "captures": {
-                        "0": {
-                            "name": "punctuation.definition.comment.neo"
-                        }
-                    },
+				},
+				{
+					"name": "comment.block.documentation.neo",
+					"begin": "###",
+					"end": "###",
+					"captures": { "0": { "name": "punctuation.definition.comment.neo" } },
 					"patterns": [
 						{
-						"name": "meta.hashtag.neo",
-						"match": "#\\w+"
+							"name": "meta.hashtag.neo",
+							"match": "#\\w+"
 						}
 					]
-                }
-            ]
-        },
-
-
-        "magic-comments": {
-      	  "patterns": [
-            {
-              "name": "comment.line.shebang.neo meta.shebang.neo",
-			  "match": "\\A(#!)[^#\\\\]*(?=\\\\|#|$)",
-			  "captures": {
-				"1": {
-					"name": "punctuation.definition.comment.shebang.neo"
 				}
-			  }
-			},
-            {
-              "name": "comment.line.directive.neo meta.directive.neo",
-			  "match": "^(#!)[^#\\\\]*(?=\\\\|#|$)",
-			  "captures": {
-				"1": {
-					"name": "punctuation.definition.comment.directive.neo"
-				}
-			  }
-			},
-            {
-              "name": "comment.line.woodstock.neo meta.woodstock.neo", 
-			  "match": "^(#\\?)[^#\\\\]*(?=\\\\|#|$)",
-			  "captures": {
-				"1": {
-					"name": "punctuation.definition.comment.woodstock.neo"
-				}
-			  }
-			},
-            {
-              "name": "comment.line.sherlock.neo meta.sherlock.neo", 
-			  "match": "^(#\\$)[^#\\\\]*(?=\\\\|#|$)",
-			  "captures": {
-				"1": {
-					"name": "punctuation.definition.comment.sherlock.neo"
-				}
-			  }
-			}
-		  ] 
+			]
 		},
-
-
-
-
-        "magic-statements": {
+		"magic-comments": {
+			"patterns": [
+				{
+					"name": "comment.line.shebang.neo meta.interpreter-directive.neo",
+					"match": "\\A(#!)[^#\\\\]*(?=\\\\|#|$)",
+					"captures": { "1": { "name": "punctuation.definition.comment.shebang.neo" } }
+				},
+				{
+					"name": "comment.line.shebang.neo meta.pragma-directive.neo",
+					"match": "^(#!)[^#\\\\]*(?=\\\\|#|$)",
+					"captures": { "1": { "name": "punctuation.definition.comment.shebang.neo" } }
+				},
+				{
+					"name": "comment.line.woodstock.neo meta.canary-test.neo",
+					"match": "^(#\\?)[^#\\\\]*(?=\\\\|#|$)",
+					"captures": { "1": { "name": "punctuation.definition.comment.woodstock.neo" } }
+				},
+				{
+					"name": "comment.line.sherlock.neo meta.shell-lookup.neo",
+					"match": "^(#\\$)[^#\\\\]*(?=\\\\|#|$)",
+					"captures": { "1": { "name": "punctuation.definition.comment.sherlock.neo" } }
+				}
+			]
+		},
+		"module-clause": {
+			"patterns": [
+				{
+					"comment": "MODULE CLAUSE",
+					"begin": "\\b(module)\\s+",
+					"beginCaptures": { "1": { "name": "keyword.module.neo" } },
+					"end": "(?!\\G)",
+					"patterns": [
+						{
+							"match": "\\d\\w*",
+							"name": "invalid.illegal.identifier.neo"
+						},
+						{
+							"match": "\\w+",
+							"name": "entity.name.type.module.neo"
+						}
+					]
+				}
+			]
+		},
+		"const-clause": {
+			"comment": "CONSTANT ASSIGNMENT WITH CONST KEYWORD",
+			"patterns": [
+				{
+					"comment": "ONE-LINER CONST ASSIGNMENT",
+					"match": "(?:(?<=\\bconst\\b)(?:\\s*)(\\b[\\w\\.]+(?:\\,\\s*[\\w\\.]+)*)(?:\\s*)([\\w\\.]+)?(?:\\s*)(=|:=|::)(?:\\s*)((?:[^\\,]+)(?:\\,\\s*[^,]+)*))",
+					"captures": {
+						"1": {
+							"patterns": [
+								{ "include": "#declaration-delimiters" },
+								{
+									"match": "\\w+",
+									"name": "variable.other.constant.neo"
+								}
+							]
+						},
+						"2": {
+							"patterns": [
+								{ "include": "#type-declarations" },
+								{
+									"match": "\\w+",
+									"name": "entity.name.type.neo"
+								}
+							]
+						},
+						"3": { "patterns": [ { "include": "#assignment-operators" } ] },
+						"4": { "patterns": [ { "include": "#expressions" } ] }
+					}
+				}
+			]
+		},
+		"magic-statements": {
 			"patterns": [
 				{
 					"name": "punctuation.definition.atom.rubber-duck.neo",
 					"match": "^(@)([a-zA-Z0-9_]*)?(=)([^#\\\\]*)(?=\\\\|#|$)",
 					"captures": {
-						"1": { 
-							"name": "punctuation.definition.atom.rubber-duck.begin.neo" 
-						},
-						"2": { 
-							"name": "punctuation.definition.atom.rubber-duck.$2.neo" 
-						},
-						"3": { 
-							"name": "punctuation.definition.atom.rubber-duck.end.neo" 
-						},
-						"4": { 
-							"name": "meta.rubber-duck.neo" 
-						}
+						"1": { "name": "punctuation.definition.atom.rubber-duck.begin.neo" },
+						"2": { "name": "punctuation.definition.atom.rubber-duck.$2.neo" },
+						"3": { "name": "punctuation.definition.atom.rubber-duck.end.neo" },
+						"4": { "name": "meta.rubber-duck.neo" }
 					}
 				},
 				{
 					"name": "punctuation.definition.atom.tracer-bird.neo",
 					"match": "^(@)([a-zA-Z0-9_]*)?(>)([^#\\\\]*)(?=\\\\|#|$)",
-					"captures": { 
-						"1": { 
-							"name": "punctuation.definition.atom.tracer-bird.begin.neo" 
-						},
-						"2": { 
-							"name": "punctuation.definition.atom.tracer-bird.$2.neo" 
-						},
-						"3": { 
-							"name": "punctuation.definition.atom.tracer-bird.end.neo" 
-						},
-						"4": { 
-							"name": "meta.tracer-bird.neo" 
-						} 
+					"captures": {
+						"1": { "name": "punctuation.definition.atom.tracer-bird.begin.neo" },
+						"2": { "name": "punctuation.definition.atom.tracer-bird.$2.neo" },
+						"3": { "name": "punctuation.definition.atom.tracer-bird.end.neo" },
+						"4": { "name": "meta.tracer-bird.neo" }
 					}
 				}
 			]
 		},
-
 		"keywords": {
+			"patterns": [
+				{ "include": "#reserved-keywords" },
+				{ "include": "#predeclared-identifiers" },
+				{ "include": "#optional-monads" },
+				{ "include": "#value-constructors" },
+				{ "include": "#standard-datatypes" },
+				{ "include": "#standard-library" }
+			]
+		},
+		"reserved-keywords": {
 			"patterns": [
 				{
 					"comment": "IMPORT CONTROL KEYWORDS",
@@ -219,7 +201,7 @@
 				{
 					"comment": "CONDITIONAL CONTROL KEYWORDS",
 					"name": "keyword.control.conditional.$1.neo",
-					"match": "\\b(if|then|else|unless|case|match|try|catch)\\b"
+					"match": "\\b(if|then|elif|else|unless|match|case|try|catch)\\b"
 				},
 				{
 					"comment": "LOOPING CONTROL KEYWORDS",
@@ -231,16 +213,25 @@
 					"name": "keyword.control.test.$1.neo",
 					"match": "\\b(invar|unit|from|once|data|call|hide|show|into|pass|past|fail)\\b"
 				},
-
-
-
 				{
 					"comment": "TOP SENTENCE DECLARATION KEYWORDS",
 					"name": "storage.type.$1.neo",
 					"match": "\\b(module|const|val|var|let|type|def|defn|undef|fact|feed|fmap|func|sub|rpc|extern|event|enum|struct|proto|trait|class|get|set)\\b"
 				},
-
-
+				{
+					"comment": "BOOLEAN OPERATORS",
+					"name": "keyword.operator.boolean.$1.neo",
+					"match": "\\b(not|and|or|xor|nand|nor|nxor)\\b"
+				},
+				{
+					"comment": "MISCELLANEOUS OPERATORS",
+					"name": "keyword.operator.other.$1.neo",
+					"match": "\\b(typeof|instanceof|sizeof|is|in|between|like|new|del)\\b"
+				}
+			]
+		},
+		"standard-datatypes": {
+			"patterns": [
 				{
 					"comment": "PRIMITIVE LOGICAL DATA TYPES",
 					"name": "storage.type.logic.$1.neo",
@@ -249,7 +240,7 @@
 				{
 					"comment": "PRIMITIVE NUMERICAL DATA TYPES",
 					"name": "storage.type.numeric.$1.neo",
-					"match": "\\b(Number|Dig|Bit|Oct|Hex|Nibble|Byte|Nat(8|16|32|64|128)?|Bignat|Int(8|16|32|64|128)?|Bigint|Real(8|16|32|64|128)?|Bigreal|Dec(1|2|3|4|5|6|7|8)?|Money|Bigdec|Ratio(16|32|64|128|256)?|Complex(16|32|64|128|256)?|Quatern(32|64|128|256)?)\\b" 
+					"match": "\\b(Number|Dig|Bit|Oct|Hex|Nibble|Byte|Nat(8|16|32|64|128)?|Bignat|Int(8|16|32|64|128)?|Bigint|Real(16|32|64|128)?|Bigreal|Dec(1|2|3|4|5|6|7|8)|Decimal|Money|Bigdecimal|Ratio(8|16|32|64|128)?|Complex(16|32|64|128)?|Quatern(16|32|64|128)?)\\b"
 				},
 				{
 					"comment": "PRIMITIVE TEMPORAL DATA TYPES",
@@ -264,17 +255,17 @@
 				{
 					"comment": "PRIMITIVE SEQUENCE DATA TYPES",
 					"name": "storage.type.sequence.$1.neo",
-					"match": "\\b(Str|Regex|Binary)\\b" 
+					"match": "\\b(Str|Regex|Binary)\\b"
 				},
 				{
 					"comment": "PRIMITIVE SHELL DATA TYPES",
 					"name": "storage.type.sequence.$1.neo",
-					"match": "\\b(Path|Uri|Inet)\\b" 
+					"match": "\\b(Path|Uri|Inet)\\b"
 				},
 				{
 					"comment": "PRIMITIVE MISCELLANEOUS DATA TYPES",
 					"name": "storage.type.other.$1.neo",
-					"match": "\\b(Any|Void|Atom|)\\b"
+					"match": "\\b(auto|void|atom|)\\b"
 				},
 				{
 					"comment": "PRIMITIVE COMPOSITE DATA TYPES",
@@ -285,9 +276,11 @@
 					"comment": "PRIMITIVE ARRAY DATA TYPES",
 					"name": "storage.type.composite.$1.neo",
 					"match": "\\b(Array|Tuple|List|Dict|Chan|Vec|Mat|Set|Queue|Deque|Xml|Table|Memo)\\b"
-				},
-
-
+				}
+			]
+		},
+		"standard-library": {
+			"patterns": [
 				{
 					"comment": "BUILT-IN MATH FUNCTIONS",
 					"name": "support.function.math.$1.neo",
@@ -301,109 +294,88 @@
 				{
 					"comment": "BUILT-IN TIME FUNCTIONS",
 					"name": "support.function.time.$1.neo",
-					"match": "\\b()\\b" 
+					"match": "\\b()\\b"
 				},
 				{
 					"comment": "BUILT-IN STANDARD FUNCTIONS",
 					"name": "support.function.stdl.$1.neo",
-					"match": "\\b(enter|print)\\b" 
+					"match": "\\b(enter|print)\\b"
 				},
-
-
-
 				{
-					"comment": "BUILT-IN NUMERICAL MODIFIERS",
-					"name": "support.modif.numeric.$1.neo",
+					"comment": "BUILT-IN NUMERICAL CONVERTERS",
+					"name": "support.converter.numeric.$1.neo",
 					"match": "\\b(abs|ceil|floor)\\b"
 				},
 				{
-					"comment": "BUILT-IN TEXT MODIFIERS",
-					"name": "support.modif.text.$1.neo",
+					"comment": "BUILT-IN TEXT CONVERTERS",
+					"name": "support.converter.text.$1.neo",
 					"match": "\\b(upper|lower|titled|trim|ltrim|rtrim|pascal|camel|snake|kebab)\\b"
 				},
 				{
-					"comment": "BUILT-IN TEMPORAL MODIFIERS",
-					"name": "support.modif.time.$1.neo",
+					"comment": "BUILT-IN TEMPORAL CONVERTERS",
+					"name": "support.converter.time.$1.neo",
 					"match": "\\b(year|month|day|week|workday|hour|minute|second|milli|micro|nano|tick|tzone|ago|ahead)\\b"
 				},
 				{
-					"comment": "BUILT-IN FACT MODIFIERS",
-					"name": "support.modif.fact.$1.neo",
+					"comment": "BUILT-IN FACT CONVERTERS",
+					"name": "support.converter.fact.$1.neo",
 					"match": "\\b(all|any|one|two|nil)\\b"
 				},
-
-
-
 				{
 					"comment": "BUILT-IN SHELL FACTS",
 					"name": "support.fact.shell.$1.neo",
 					"match": "\\b(exist|ready)\\b"
 				},
-
-
-
 				{
 					"comment": "BUILT-IN CONSOLE MACROS",
 					"name": "support.macro.console.$1.neo",
-					"match": "\\b(at|scan|entry|echo|alert|till|since|timely|cancel|play|cls)\\b"  
+					"match": "\\b(at|scan|entry|echo|alert|till|since|timely|cancel|play|cls)\\b"
 				},
 				{
 					"comment": "BUILT-IN SHELL MACROS",
 					"name": "support.macro.shell.$1.neo",
-					"match": "\\b(cd|pwd|ls|mkdir|rmdir|touch|rm|cp|mv|rename|chmod|chown|chgrp)\\b"  
+					"match": "\\b(cd|pwd|ls|mkdir|rmdir|touch|rm|cp|mv|rename|chmod|chown|chgrp)\\b"
 				},
 				{
 					"comment": "BUILT-IN ERROR-HANDLING MACROS",
 					"name": "support.macro.error.$1.neo",
 					"match": "\\b(raise|panic)\\b"
-				},
-
-
-
-				{
-					"comment": "BOOLEAN OPERATORS",
-					"name": "keyword.operator.boolean.$1.neo",
-					"match": "\\b(not|and|or|xor|nand|nor|nxor)\\b"
-				},
-				{
-					"comment": "MISCELLANEOUS OPERATORS",
-					"name": "keyword.operator.other.$1.neo",
-					"match": "\\b(typeof|instanceof|sizeof|is|in|between|like|new|del)\\b"
 				}
-
-
-
-
 			]
 		},
-
-
-		"language-monads": {
+		"predeclared-identifiers": {
+			"patterns": [
+				{
+					"comment": "RESERVED LANGUAGE VARIABLES",
+					"name": "variable.language.$1.neo",
+					"match": "\\b(this|iota|its|top|end|it|self|super)\\b"
+				}
+			]
+		},
+		"optional-monads": {
 			"patterns": [
 				{
 					"comment": "LANGUAGE RESULT OPTIONAL MONAD",
-					"name": "variable.language.result.$1.neo",
-					"match": "\\b(Okay|Fail)\\b"
+					"name": "constant.language.result.$1.neo",
+					"match": "\\b(Okay|Fail)\\b\\(([^)]+)\\)"
 				},
 				{
 					"comment": "LANGUAGE MAYBE OPTIONAL MONAD",
-					"name": "variable.language.maybe.$1.neo",
-					"match": "\\b(Some|None)\\b"
+					"name": "constant.language.maybe.$1.neo",
+					"match": "\\b(None)\\b|\\b(Some)\\b\\(([^)]+)\\)"
 				},
 				{
 					"comment": "LANGUAGE EITHER OPTIONAL MONAD",
-					"name": "variable.language.either.$1.neo",
-					"match": "\\b(Yea|Nay)\\b"
+					"name": "constant.language.either.$1.neo",
+					"match": "\\b(Yea|Nay)\\b\\(([^)]+)\\)"
 				},
 				{
 					"comment": "LANGUAGE STREAM OPTIONAL MONAD",
-					"name": "variable.language.stream.$1.neo",
-					"match": "\\b(Data|EoT)\\b"
+					"name": "constant.language.stream.$1.neo",
+					"match": "\\b(EoT)\\b|\\b(Data)\\b\\(([^)]+)\\)"
 				}
 			]
 		},
-
-
 		"value-constructors": {
 			"patterns": [
 				{
@@ -414,91 +386,109 @@
 				{
 					"comment": "NUMERICAL VALUE CONSTRUCTORS",
 					"name": "constant.language.numeric.$1.neo",
-					"match": "\\b(Zero|Nonzero|MinValue|MaxValue|NaN|NegativeInfinity|PositiveInfinity)\\b"
+					"match": "\\b(Zero|MinValue|MaxValue|NaN|NegativeInfinity|PositiveInfinity)\\b|\\b(Nonzero)\\b\\(([^)]+)\\)"
 				},
 				{
 					"comment": "TEMPORAL VALUE CONSTRUCTORS",
 					"name": "constant.language.time.$1.neo",
-					"match": "\\b(Epoch|Eon|Yesterday|Today|Now|Tomorrow|LocalDate|LocalDateTime|OffsetDate|OffsetDateTime|ZonedDate|ZonedDateTime)\\b"
+					"match": "\\b(Epoch|Eon|Yesterday|Today|Now|Tomorrow)\\b|\\b(LocalDate|LocalDateTime|OffsetDate|OffsetDateTime|ZonedDate|ZonedDateTime)\\b\\(([^)]+)\\)"
 				},
 				{
 					"comment": "CHARACTER VALUE CONSTRUCTORS",
 					"name": "constant.language.time.$1.neo",
-					"match": "\\b(Letter|Mark|Digit|Punctuation|Symbol|Separator|Other|NonPrintable|Null|)\\b"
+					"match": "\\b(Null)\\b|\\b(Letter|Mark|Digit|Punctuation|Symbol|Separator|Other|NonPrintable)\\b\\(([^)]+)\\)"
 				},
 				{
 					"comment": "SEQUENCE VALUE CONSTRUCTORS",
 					"name": "constant.language.sequence.$1.neo",
-					"match": "\\b(Blank|Nonblank)\\b"
+					"match": "\\b(Blank)\\b|\\b(Nonblank)\\b\\(([^)]+)\\)"
 				},
 				{
 					"comment": "FILESYSTEM VALUE CONSTRUCTORS",
 					"name": "constant.language.path.$1.neo",
-					"match": "\\b(Folder|File|LinkFile|PipeFile|SocketFile|BlockDevice|CharDevice|NullDevice)\\b"  
+					"match": "\\b(NullDevice)\\b|\\b(Folder|File|LinkFile|PipeFile|SocketFile|BlockDevice|CharDevice)\\b\\(([^)]+)\\)"
 				},
 				{
 					"comment": "INET VALUE CONSTRUCTORS",
 					"name": "constant.language.inet.$1.neo",
-					"match": "\\b(Ipv4|Ipv6)\\b"  
+					"match": "\\b(Ipv4|Ipv6)\\b\\(([^)]+)\\)"
 				},
 				{
 					"comment": "URI VALUE CONSTRUCTORS",
 					"name": "constant.language.uri.$1.neo",
-					"match": "\\b(Url|Urn)\\b"  
+					"match": "\\b(Url|Urn)\\b\\(([^)]+)\\)"
 				}
 			]
 		},
-
-
-		"reserved-variables": {
-			"patterns": [
-				{
-					"comment": "RESERVED LANGUAGE VARIABLES",
-					"name": "variable.language.$1.neo",
-					"match": "\\b(this|iota|its|top|end|it|self|super)\\b"
-				}
-			]
-		},
-
-
 		"operators": {
+			"patterns": [
+				{ "include": "#unary-operators" },
+				{ "include": "#binary-operators" },
+				{ "include": "#ternary-operators" },
+				{ "include": "#assignment-operators" }
+			]
+		},
+		"unary-operators": {
 			"comment": "NOTE THAT THE ORDER HERE IS VERY IMPORTANT!",
 			"patterns": [
 				{
-					"match": "<\\-",
-					"name": "keyword.operator.channel.neo"
+					"match": "\\+(?!\\+)",
+					"name": "keyword.operator.positive.neo"
 				},
 				{
-					"match": "\\-\\-",
-					"name": "keyword.operator.decrement.neo"
+					"match": "\\-(?!\\-)",
+					"name": "keyword.operator.negative.neo"
 				},
 				{
 					"match": "\\+\\+",
 					"name": "keyword.operator.increment.neo"
 				},
 				{
-					"match": "~~",
+					"match": "\\-\\-",
+					"name": "keyword.operator.decrement.neo"
+				},
+				{
+					"match": "~~|~(?!~)",
 					"name": "keyword.operator.negation.neo"
 				},
 				{
-					"match": "(\\^\\^|\\^(?!\\^))",
+					"match": "\\^\\^|\\^(?!\\^)",
 					"name": "keyword.operator.sort.neo"
 				},
 				{
-					"match": "(===|=)",
+					"match": "===|=(?![=])",
 					"name": "keyword.operator.clone.neo"
+				},
+				{
+					"match": "\\*\\*|\\*/|\\*\\!",
+					"name": "keyword.operator.exponentiation.neo"
+				},
+				{
+					"match": "\\.\\.\\.",
+					"name": "keyword.operator.spread.neo"
+				},
+				{
+					"comment": "BOOLEAN OPERATORS",
+					"name": "keyword.operator.boolean.$1.neo",
+					"match": "\\b(not)\\b"
+				},
+				{
+					"comment": "MISCELLANEOUS OPERATORS",
+					"name": "keyword.operator.other.$1.neo",
+					"match": "\\b(typeof|instanceof|sizeof|new|del)\\b"
+				}
+			]
+		},
+		"binary-operators": {
+			"comment": "NOTE THAT THE ORDER HERE IS VERY IMPORTANT!",
+			"patterns": [
+				{
+					"match": "<<\\-|(?<!<)<\\-",
+					"name": "keyword.operator.pop.neo"
 				},
 				{
 					"match": ":",
 					"name": "keyword.operator.mapping.neo"
-				},
-				{
-					"match": "(\\.\\.\\.)",
-					"name": "keyword.operator.ellipsis.neo"
-				},
-				{
-					"match": "(>?(\\.\\.)(?!\\.)<?)",
-					"name": "keyword.operator.interval.neo"
 				},
 				{
 					"match": "\\|>",
@@ -509,7 +499,7 @@
 					"name": "keyword.operator.bind.neo"
 				},
 				{
-					"match": "->(?!>)",
+					"match": "\\->(?!>)",
 					"name": "keyword.operator.subtype.neo"
 				},
 				{
@@ -541,10 +531,6 @@
 					"name": "keyword.operator.coalescing.neo"
 				},
 				{
-					"match": "(>>>=|<<=|>>=|::|:=|<<-|<-|<\\||\\*\\*=|\\*/=|\\*=|/=|%%=|÷=|%\\+=|%-=|%=|\\+=|-=|&\\^=|&=|\\^=|\\|=|=)",
-					"name": "keyword.operator.assignment.neo"
-				},
-				{
 					"match": "(\\+|\\-|\\*|/|\\\\\\\\|÷|%|\\*\\*|\\*/|\\*!)",
 					"name": "keyword.operator.arithmetic.neo"
 				},
@@ -553,18 +539,68 @@
 					"name": "keyword.operator.arithmetic.percentage.neo"
 				},
 				{
-					"match": "(&(?!\\^)|&\\^|\\^|\\||<<|>>|>>>|\\~)",
+					"match": "(&(?!\\^)|&\\^|\\^|\\||<<|>>|>>>)",
 					"name": "keyword.operator.arithmetic.bitwise.neo"
 				},
 				{
-					"match": "\\.\\.\\.",
-					"name": "keyword.operator.ellipsis.neo"
+					"comment": "BOOLEAN OPERATORS",
+					"name": "keyword.operator.boolean.$1.neo",
+					"match": "\\b(and|or|xor|nand|nor|nxor)\\b"
+				},
+				{
+					"comment": "MISCELLANEOUS OPERATORS",
+					"name": "keyword.operator.other.$1.neo",
+					"match": "\\b(is|in|between|like)\\b"
 				}
 			]
 		},
-
-		"strings":  {
-            "patterns": [
+		"ternary-operators": {
+			"comment": "NOTE THAT THE ORDER HERE IS VERY IMPORTANT!",
+			"patterns": [
+				{
+					"match": "(>?(\\.\\.)(?!\\.)<?)(\\w+):",
+					"name": "keyword.operator.interval.neo"
+				}
+			]
+		},
+		"assignment-operators": {
+			"comment": "NOTE THAT THE ORDER HERE IS VERY IMPORTANT!",
+			"patterns": [
+				{
+					"match": "(=|:=|::)",
+					"name": "keyword.operator.assignment.single.neo"
+				},
+				{
+					"match": "(>>>=|<<=|>>=|<<-|<-|<\\||\\*\\*=|\\*/=|\\*=|/=|%%=|÷=|%\\+=|%-=|%=|\\+=|-=|&\\^=|&=|\\^=|\\|=)",
+					"name": "keyword.operator.assignment.compound.neo"
+				}
+			]
+		},
+		"punctuations": {
+			"patterns": [ { "include": "#declaration-delimiters" } ]
+		},
+		"declaration-delimiters": {
+			"comment": "CONSTANTS, VALUES, VARIABLES ARE SEPARATED BY , IN DECLARATION",
+			"patterns": [
+				{
+					"match": "\\,",
+					"name": "punctuation.other.comma.neo"
+				}
+			]
+		},
+		"type-declarations": {
+			"comment": "includes all type declarations",
+			"patterns": [ { "include": "#standard-datatypes" } ]
+		},
+		"expressions": {
+			"comment": "includes all type declarations",
+			"patterns": [ { "include": "#literals" } ]
+		},
+		"literals": {
+			"patterns": [ { "include": "#strings" } ]
+		},
+		"strings": {
+			"patterns": [
 				{
 					"name": "string.quoted.double.neo",
 					"begin": "\"",
@@ -577,7 +613,7 @@
 					]
 				},
 				{
-					"name": "string.quoted.triple.neo",
+					"name": "string.quoted.double.block.neo",
 					"begin": "\"\"\"",
 					"end": "\"\"\"",
 					"patterns": [
@@ -599,18 +635,17 @@
 					]
 				},
 				{
-					"name": "string.quoted.single.triple.neo",
+					"name": "string.quoted.single.block.neo",
 					"begin": "'''",
 					"end": "'''",
 					"patterns": [
 						{
-						"name": "constant.character.escape.neo",
-						"match": "\\\\."
+							"name": "constant.character.escape.neo",
+							"match": "\\\\."
 						}
 					]
-					}
+				}
 			]
 		}
-		
 	}
 }
