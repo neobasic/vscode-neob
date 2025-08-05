@@ -29,6 +29,25 @@ This is a block comment. #hashtag
 
 const index = iota
 
+const char = '\n'
+
+const nome = 'za afs fadsfa sdfasd fd'
+
+const nome = "zzzf asf asdf asdf asdf asdf "
+
+const nome = ''' asdfsdafasdfasfdas '''
+
+const nome = """ asdfsdafasdfasfdas """
+
+const imag = 8 + 3i
+
+const PI = 3.14
+
+const tx = 2.56E23
+
+const xy = 23//12
+
+
 print "Hello World!" this.name 
 
 enter "Digite um número: ", x
