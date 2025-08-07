@@ -280,15 +280,39 @@
     },
 
     {
-      "scope": "keyword.other.unit.exponent",
+      "scope": "keyword.other.unit",
       "settings": {
         "foreground": "#3AD4E8"
       }
     },
     {
+      "scope": "keyword.other.unit.binary",
+      "settings": {
+        "foreground": "#75E1F0"
+      }
+    },
+    {
+      "scope": "keyword.other.unit.octal",
+      "settings": {
+        "foreground": "#164173"
+      }
+    },
+    {
+      "scope": "keyword.other.unit.hexadecimal",
+      "settings": {
+        "foreground": "#03DBF7"
+      }
+    },
+    {
+      "scope": "keyword.other.unit.exponent",
+      "settings": {
+        "foreground": "#3EAD88"
+      }
+    },
+    {
       "scope": "keyword.other.unit.imaginary",
       "settings": {
-        "foreground": "#3AD4E8"
+        "foreground": "#2D4A7D"
       }
     },
 
@@ -335,9 +359,6 @@
         "foreground": "#E9F50C"
       }
     },
-
-
-
 
     {
       "scope": "punctuation.definition.regex",
@@ -388,76 +409,5 @@
         "foreground": "#66EF78"
       }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   ]
 }

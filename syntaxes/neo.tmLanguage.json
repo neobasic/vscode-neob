@@ -594,15 +594,26 @@
 		},
 		"expressions": {
 			"comment": "INCLUDES ALL POSSIBLE VALUES OF EXPRESSIONS",
-			"patterns": [ { "include": "#literals" } ]
+			"patterns": [
+				{ "include": "#identifier" },
+				{ "include": "#literals" }
+			]
+		},
+		"identifier": {
+			"patterns": [
+				{
+					"name": "variable.other.neo",
+					"match": "\\b[[:alpha:]_][[:alnum:]_]*\\b"
+				}
+			]
 		},
 		"literals": {
 			"patterns": [
-				{ "include": "#number-literals" },
+				{ "include": "#number-literal" },
 				{ "include": "#string-literals" }
 			]
 		},
-		"number-literals": {
+		"number-literal": {
 			"match": "(?<!\\w)\\.?\\d(?:(?:[xXbBoO0-9a-fA-FijkIJK_\\.])|(//)|(?<=[eEpP])[+-])*",
 			"captures": {
 				"0": {
