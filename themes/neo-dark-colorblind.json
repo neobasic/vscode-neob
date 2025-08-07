@@ -359,6 +359,38 @@
         "foreground": "#E9F50C"
       }
     },
+    {
+      "scope": "constant.other.character.escape",
+      "settings": {
+        "foreground": "#F04330"
+      }
+    },
+
+
+    
+    {
+      "scope": "meta.interpolation.placeholder",
+      "settings": {
+        "foreground": "#0EF19E"
+      }
+    },    
+    {
+      "scope": "punctuation.section.interpolation.begin",
+      "settings": {
+        "foreground": "#B0F1D9"
+      }
+    },    
+    {
+      "scope": "punctuation.section.interpolation.end",
+      "settings": {
+        "foreground": "#395E51"
+      }
+    },    
+   
+
+
+
+
 
     {
       "scope": "punctuation.definition.regex",

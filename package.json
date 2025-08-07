@@ -16,9 +16,6 @@
     "theme": "dark"
   },
   "main": "./out/extension.js",
-  "activationEvents": [
-    "onLanguage:neo"
-  ],
   "homepage": "https://www.neobasic.org",
   "repository": {
     "type": "git",

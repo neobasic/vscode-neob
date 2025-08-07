@@ -31,11 +31,11 @@ const index = iota
 
 const char = '\n'
 
-const nome = 'za afs fadsfa sdfasd fd'
+const nome = 'za \afs \o456 fads \xfa \sdfasd \fd  {4543+3}'
 
-const nome = "zzzf asf asdf asdf asdf asdf "
+const nome = "zzzf asf asdf \asdf asdf \asdf "
 
-const nome = ''' asdfsdafasdfasfdas '''
+const nome = ''' asdfsdafasd\fasfdas '''
 
 const nome = """ asdfsdafasdfasfdas """
 

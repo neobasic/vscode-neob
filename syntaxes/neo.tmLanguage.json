@@ -909,6 +909,8 @@
 					"end": "'(?!')",
 					"endCaptures": { "0": { "name": "punctuation.definition.string.end.neo" } },
 					"patterns": [
+						{ "include": "#escape-character" },
+						{ "include": "#placeholder-expression" },
 						{
 							"name": "constant.other.string.quoted.single.neo.neo",
 							"match": "\\\\."
@@ -922,10 +924,38 @@
 					"end": "'''",
 					"endCaptures": { "0": { "name": "punctuation.definition.string.end.neo" } },
 					"patterns": [
+						{ "include": "#escape-character" },
+						{ "include": "#placeholder-expression" },
 						{
 							"name": "constant.other.string.quoted.single.block.neo",
 							"match": "\\\\."
 						}
+					]
+				}
+			]
+		},
+		"escape-character": {
+			"patterns": [
+				{
+					"name": "constant.other.character.escape.neo",
+					"match": "\\\\([0abcdefnqrstvz\\\\'\"]|o[0-7]{3}|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})"
+				}
+			]
+		},
+		"placeholder-expression": {
+			"patterns": [
+				{
+					"name": "meta.interpolation.placeholder.neo",
+					"begin": "\\{",
+					"beginCaptures": {
+						"0": { "name": "punctuation.section.interpolation.begin.neo" }
+					},
+					"end": "\\}",
+					"endCaptures": {
+						"0": { "name": "punctuation.section.interpolation.end.neo" }
+					},
+					"patterns": [
+						{ "include": "#expressions" }
 					]
 				}
 			]
