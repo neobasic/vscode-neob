@@ -855,7 +855,8 @@
 		"string-literals": {
 			"patterns": [
 				{ "include": "#verbatim-string" },
-				{ "include": "#template-string" }
+				{ "include": "#template-string" },
+				{ "include": "#regex" }
 			]
 		},
 		"verbatim-string": {
@@ -916,6 +917,128 @@
 						}
 					]
 				}
+			]
+		},
+		"regex": {
+			"patterns": [
+				{
+					"begin": "(?<!\\+\\+|--|})(?<=[!(+,:=?\\[]|^return|[^$._[:alnum:]]return|^case|[^$._[:alnum:]]case|=>|&&|\\|\\||\\*/)\\s*(/)(?![*/])(?=(?:[^()/\\[\\\\]|\\\\.|\\[([^]\\\\]|\\\\.)+]|\\(([^)\\\\]|\\\\.)+\\))+/([dgimsuvy]+|(?![*/])|(?=/\\*))(?!\\s*[$0-9A-Z_a-z]))",
+					"beginCaptures": { "1": { "name": "punctuation.definition.regex.begin.neo" } },
+					"end": "(/)([dgimsuvy]*)",
+					"endCaptures": {
+						"1": { "name": "punctuation.definition.regex.end.neo" },
+						"2": { "name": "keyword.other.regex.flag.neo" }
+					},
+					"name": "string.regex.neo",
+					"patterns": [ { "include": "#regexp" } ]
+				},
+				{
+					"begin": "((?<![]$)_[:alnum:]]|\\+\\+|--|}|\\*/)|((?<=^return|[^$._[:alnum:]]return|^case|[^$._[:alnum:]]case))\\s*)/(?![*/])(?=(?:[^/\\[\\\\]|\\\\.|\\[([^]\\\\]|\\\\.)*])+/([dgimsuvy]+|(?![*/])|(?=/\\*))(?!\\s*[$0-9A-Z_a-z]))",
+					"beginCaptures": { "0": { "name": "punctuation.definition.regex.begin.neo" } },
+					"end": "(/)([dgimsuvy]*)",
+					"endCaptures": {
+						"1": { "name": "punctuation.definition.regex.end.neo" },
+						"2": { "name": "keyword.other.regex.flag.neo" }
+					},
+					"name": "string.regex.neo",
+					"patterns": [ { "include": "#regexp" } ]
+				}
+			]
+		},
+		"regex-character-class": {
+			"patterns": [
+				{
+					"match": "\\\\[DSWdfnrstvw]|\\.",
+					"name": "constant.other.regex.character-class.neo"
+				},
+				{
+					"match": "\\\\([0-7]{3}|x\\h{2}|u\\h{4})",
+					"name": "constant.other.regex.character.numeric.neo"
+				},
+				{
+					"match": "\\\\c[A-Z]",
+					"name": "constant.other.regex.character.control.neo"
+				},
+				{
+					"match": "\\\\.",
+					"name": "constant.other.regex.character.escape.backslash.neo"
+				}
+			]
+		},
+		"regexp": {
+			"patterns": [
+				{
+					"match": "\\\\[Bb]|[$^]",
+					"name": "keyword.other.regex.control.anchor.neo"
+				},
+				{
+					"captures": {
+						"0": { "name": "keyword.other.regex.back-reference.neo" },
+						"1": { "name": "variable.other.regex.neo" }
+					},
+					"match": "\\\\(?:[1-9]\\d*|k<([$A-Z_a-z][$\\w]*)>)"
+				},
+				{
+					"match": "[*+?]|\\{(\\d+,\\d+|\\d+,|,\\d+|\\d+)}\\??",
+					"name": "keyword.other.regex.operator.quantifier.neo"
+				},
+				{
+					"match": "\\|",
+					"name": "keyword.other.regex.operator.or.neo"
+				},
+				{
+					"begin": "(\\()((\\?=)|(\\?!)|(\\?<=)|(\\?<!))",
+					"beginCaptures": {
+						"1": { "name": "punctuation.definition.regex.group.neo" },
+						"2": { "name": "punctuation.definition.regex.group.assertion.neo" },
+						"3": { "name": "meta.regex.assertion.look-ahead.neo" },
+						"4": { "name": "meta.regex.assertion.negative-look-ahead.neo" },
+						"5": { "name": "meta.regex.assertion.look-behind.neo" },
+						"6": { "name": "meta.regex.assertion.negative-look-behind.neo" }
+					},
+					"end": "(\\))",
+					"endCaptures": { "1": { "name": "punctuation.definition.regex.group.neo" } },
+					"name": "meta.regex.group.assertion.neo",
+					"patterns": [ { "include": "#regexp" } ]
+				},
+				{
+					"begin": "\\((?:(\\?:)|\\?<([$A-Z_a-z][$\\w]*)>)?",
+					"beginCaptures": {
+						"0": { "name": "punctuation.definition.regex.group.neo" },
+						"1": { "name": "punctuation.definition.regex.group.no-capture.neo" },
+						"2": { "name": "variable.other.regex.neo" }
+					},
+					"end": "\\)",
+					"endCaptures": { "0": { "name": "punctuation.definition.regex.group.neo" } },
+					"name": "meta.regex.group.neo",
+					"patterns": [ { "include": "#regexp" } ]
+				},
+				{
+					"begin": "(\\[)(\\^)?",
+					"beginCaptures": {
+						"1": { "name": "punctuation.definition.regex.character-class.neo" },
+						"2": { "name": "keyword.other.regex.operator.negation.neo" }
+					},
+					"end": "(])",
+					"endCaptures": { "1": { "name": "punctuation.definition.regex.character-class.neo" } },
+					"name": "constant.other.regex.character-class.set.neo",
+					"patterns": [
+						{
+							"captures": {
+								"1": { "name": "constant.other.regex.character.numeric.neo" },
+								"2": { "name": "constant.other.regex.character.control.neo" },
+								"3": { "name": "constant.other.regex.character.escape.backslash.neo" },
+								"4": { "name": "constant.other.regex.character.numeric.neo" },
+								"5": { "name": "constant.other.regex.character.control.neo" },
+								"6": { "name": "constant.other.regex.character.escape.backslash.neo" }
+							},
+							"match": "(?:.|(\\\\(?:[0-7]{3}|x\\h{2}|u\\h{4}))|(\\\\c[A-Z])|(\\\\.))-(?:[^]\\\\]|(\\\\(?:[0-7]{3}|x\\h{2}|u\\h{4}))|(\\\\c[A-Z])|(\\\\.))",
+							"name": "constant.other.regex.character-class.range.neo"
+						},
+						{ "include": "#regex-character-class" }
+					]
+				},
+				{ "include": "#regex-character-class" }
 			]
 		}
 	}

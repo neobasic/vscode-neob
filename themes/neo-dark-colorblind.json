@@ -334,6 +334,130 @@
       "settings": {
         "foreground": "#E9F50C"
       }
+    },
+
+
+
+
+    {
+      "scope": "punctuation.definition.regex",
+      "settings": {
+        "foreground": "#ECF0A4"
+      }
+    },
+    {
+      "scope": "punctuation.definition.regex.begin",
+      "settings": {
+        "foreground": "#EFF482"
+      }
+    },
+    {
+      "scope": "punctuation.definition.regex.end",
+      "settings": {
+        "foreground": "#E9F50C"
+      }
+    },
+
+    {
+      "scope": "keyword.other.regex",
+      "settings": {
+        "foreground": "#E1B035"
+      }
+    },
+    {
+      "scope": "string.regex",
+      "settings": {
+        "foreground": "#DE4747"
+      }
+    },
+    {
+      "scope": "meta.regex",
+      "settings": {
+        "foreground": "#0CEFEF"
+      }
+    },
+    {
+      "scope": "constant.other.regex",
+      "settings": {
+        "foreground": "#A6A7F3"
+      }
+    },
+    {
+      "scope": "variable.other.regex",
+      "settings": {
+        "foreground": "#66EF78"
+      }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   ]
 }

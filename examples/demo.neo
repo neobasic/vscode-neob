@@ -47,6 +47,38 @@ const tx = 2.56E23
 
 const xy = 23//12
 
+const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const regexSenha = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/
+
+const regexTelefone = /^\(\d{2}\) \d{5}-\d{4}$/
+const palavras = frase.match(/\b\w+\b/g)
+
+const data = "Hoje é 07/08/2025."
+const ano = data.match(/\d{4}/)[0]
+
+const nomeCompleto = "João da Silva"
+const partes = nomeCompleto.match(/(\w+) da (\w+)/)
+
+const textoComEspacos = "  Olá,  mundo!  \n\n  Que bom."
+const textoLimpo = textoComEspacos.replace(/\s+/g, ' ')
+
+const numero = "11987654321"
+const numeroFormatado = numero.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3')
+
+const stringKebabCase = "exemplo-de-string"
+const camelCase = stringKebabCase.replace(/-(\w)/g, (\ match, p1 => p1;upper)
+
+const rex = /abc/
+const regx = /abc/gi
+const rx1 = /[a-z]/
+const rx2 = /a{2,4}/
+const rx3 = /cat|dog|bird/
+const regex = /\d\.\d{2}/
+const regex = /(foo|bar)+/
+const regex = /\d+(?=px)/
+const result = "2025-08-07".match(/(\d{4})-(\d{2})-(\d{2})/)
+
+
 
 print "Hello World!" this.name 
 
