@@ -1,6 +1,6 @@
-# neobasic README
+# NeoBASIC VS Code Extension
 
-This is the README for your extension "neobasic". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "NeoBASIC". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 
