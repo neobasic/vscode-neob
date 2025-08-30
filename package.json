@@ -19,19 +19,19 @@
   "homepage": "https://www.neobasic.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/neobasic/vscode-neo"
+    "url": "https://github.com/neobasic/vscode-neob"
   },
   "bugs": {
-    "url": "https://github.com/neobasic/vscode-neo/issues"
+    "url": "https://github.com/neobasic/vscode-neob/issues"
   },
-  "qna": "https://github.com/neobasic/vscode-neo/discussions/categories/q-a",
+  "qna": "https://github.com/neobasic/vscode-neob/discussions/categories/q-a",
   "engines": {
     "vscode": "^1.80.0"
   },
   "enableTelemetry": false,
   "keywords": [
     "neobasic",
-    "neo",
+    "neob",
     "basic",
     "code",
     "coding",
@@ -53,36 +53,36 @@
   "contributes": {
     "languages": [
       {
-        "id": "neo",
+        "id": "neob",
         "aliases": [
           "NeoBASIC",
           "neobasic",
-          "neo",
+          "neob",
           "basic"
         ],
         "extensions": [
-          ".neo"
+          ".neob"
         ],
         "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
       {
-        "language": "neo",
-        "scopeName": "source.neo",
-        "path": "./syntaxes/neo.tmLanguage.json"
+        "language": "neob",
+        "scopeName": "source.neob",
+        "path": "./syntaxes/neob.tmLanguage.json"
       }
     ],
     "themes": [
       {
         "label": "Neo Light (Colorblind)",
         "uiTheme": "vs",
-        "path": "./themes/neo-light-colorblind.json"
+        "path": "./themes/neob-light-colorblind.json"
       },
       {
         "label": "Neo Dark (Colorblind)",
         "uiTheme": "vs-dark",
-        "path": "./themes/neo-dark-colorblind.json"
+        "path": "./themes/neob-dark-colorblind.json"
       }
     ]
   },

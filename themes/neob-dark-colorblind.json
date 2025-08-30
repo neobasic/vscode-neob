@@ -6,7 +6,7 @@
   },
   "tokenColors": [
     {
-      "scope": "source.neo",
+      "scope": "source.neob",
       "settings": {
         "foreground": "#E346C9"
       }
@@ -14,8 +14,8 @@
 
     {
       "scope": [
-        "comment.line.number-sign.neo",
-        "punctuation.definition.comment.neo"
+        "comment.line.number-sign.neob",
+        "punctuation.definition.comment.neob"
       ],
       "settings": {
         "foreground": "#7FEA05"
@@ -23,21 +23,21 @@
     },
 
     {
-      "scope": ["comment.block.neo"],
+      "scope": ["comment.block.neob"],
       "settings": {
         "foreground": "#72C217"
       }
     },
 
     {
-      "scope": ["comment.block.documentation.neo"],
+      "scope": ["comment.block.documentation.neob"],
       "settings": {
         "foreground": "#71A13A"
       }
     },
 
     {
-      "scope": ["meta.hashtag.neo"],
+      "scope": ["meta.hashtag.neob"],
       "settings": {
         "foreground": "#8E90E6"
       }
@@ -45,22 +45,22 @@
 
     {
       "scope": [
-        "comment.line.shebang.neo",
-        "punctuation.definition.comment.shebang.neo"
+        "comment.line.shebang.neob",
+        "punctuation.definition.comment.shebang.neob"
       ],
       "settings": {
         "foreground": "#0C9898"
       }
     },
     {
-      "scope": ["meta.interpreter-directive.neo"],
+      "scope": ["meta.interpreter-directive.neob"],
       "settings": {
         "foreground": "#00ffff"
       }
     },
 
     {
-      "scope": ["meta.pragma-directive.neo"],
+      "scope": ["meta.pragma-directive.neob"],
       "settings": {
         "foreground": "#7DBCEA"
       }
@@ -68,15 +68,15 @@
 
     {
       "scope": [
-        "comment.line.woodstock.neo",
-        "punctuation.definition.comment.woodstock.neo"
+        "comment.line.woodstock.neob",
+        "punctuation.definition.comment.woodstock.neob"
       ],
       "settings": {
         "foreground": "#82880B"
       }
     },
     {
-      "scope": ["meta.canary-test.neo"],
+      "scope": ["meta.canary-test.neob"],
       "settings": {
         "foreground": "#ECF44C"
       }
@@ -84,15 +84,15 @@
 
     {
       "scope": [
-        "comment.line.sherlock.neo",
-        "punctuation.definition.comment.sherlock.neo"
+        "comment.line.sherlock.neob",
+        "punctuation.definition.comment.sherlock.neob"
       ],
       "settings": {
         "foreground": "#6E6E6E"
       }
     },
     {
-      "scope": ["meta.shell-lookup.neo"],
+      "scope": ["meta.shell-lookup.neob"],
       "settings": {
         "foreground": "#AEAEAE"
       }
@@ -107,16 +107,16 @@
 
     {
       "scope": [
-        "punctuation.definition.atom.rubber-duck.neo",
-        "punctuation.definition.atom.rubber-duck.begin.neo",
-        "punctuation.definition.atom.rubber-duck.end.neo"
+        "punctuation.definition.atom.rubber-duck.neob",
+        "punctuation.definition.atom.rubber-duck.begin.neob",
+        "punctuation.definition.atom.rubber-duck.end.neob"
       ],
       "settings": {
         "foreground": "#DB5B6F"
       }
     },
     {
-      "scope": ["meta.rubber-duck.neo"],
+      "scope": ["meta.rubber-duck.neob"],
       "settings": {
         "fontStyle": "italic",
         "foreground": "#2DDD68"
@@ -125,16 +125,16 @@
 
     {
       "scope": [
-        "punctuation.definition.atom.tracer-bird.neo",
-        "punctuation.definition.atom.tracer-bird.begin.neo",
-        "punctuation.definition.atom.tracer-bird.end.neo"
+        "punctuation.definition.atom.tracer-bird.neob",
+        "punctuation.definition.atom.tracer-bird.begin.neob",
+        "punctuation.definition.atom.tracer-bird.end.neob"
       ],
       "settings": {
         "foreground": "#0B83F3"
       }
     },
     {
-      "scope": ["meta.tracer-bird.neo"],
+      "scope": ["meta.tracer-bird.neob"],
       "settings": {
         "fontStyle": "italic",
         "foreground": "#9A9C40"
@@ -142,12 +142,12 @@
     },
     {
       "scope": [
-        "punctuation.definition.atom.tracer-bird.trace.neo",
-        "punctuation.definition.atom.tracer-bird.debug.neo",
-        "punctuation.definition.atom.tracer-bird.info.neo",
-        "punctuation.definition.atom.tracer-bird.warn.neo",
-        "punctuation.definition.atom.tracer-bird.error.neo",
-        "punctuation.definition.atom.tracer-bird.fatal.neo"
+        "punctuation.definition.atom.tracer-bird.trace.neob",
+        "punctuation.definition.atom.tracer-bird.debug.neob",
+        "punctuation.definition.atom.tracer-bird.info.neob",
+        "punctuation.definition.atom.tracer-bird.warn.neob",
+        "punctuation.definition.atom.tracer-bird.error.neob",
+        "punctuation.definition.atom.tracer-bird.fatal.neob"
       ],
       "settings": {
         "foreground": "#25C3CB"

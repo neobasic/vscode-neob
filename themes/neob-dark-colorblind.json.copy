@@ -337,7 +337,7 @@
       "scope": [
         "storage.modifier.package",
         "storage.modifier.import",
-        "storage.type.neo"
+        "storage.type.neob"
       ],
       "settings": {
         "foreground": "#c9d1d9"
@@ -646,9 +646,9 @@
     {
       "scope": [
         "comment",
-        "comment.line.number-sign.neo",
+        "comment.line.number-sign.neob",
         "punctuation.definition.comment",
-        "punctuation.definition.comment.neo"
+        "punctuation.definition.comment.neob"
       ],
       "settings": {
         "foreground": "#7FEA05"
@@ -658,7 +658,7 @@
 
     {
       "scope": [
-        "comment.block.neo"
+        "comment.block.neob"
       ],
       "settings": {
         "foreground": "#72C217"
@@ -668,7 +668,7 @@
 
     {
       "scope": [
-        "comment.block.documentation.neo"
+        "comment.block.documentation.neob"
       ],
       "settings": {
         "foreground": "#71A13A"
@@ -681,8 +681,8 @@
 
     {
       "scope": [
-        "comment.line.shebang.neo",
-        "punctuation.definition.comment.shebang.neo"
+        "comment.line.shebang.neob",
+        "punctuation.definition.comment.shebang.neob"
       ],
       "settings": {
         "foreground": "#0C9898"
@@ -690,7 +690,7 @@
     },
     {
       "scope": [
-        "meta.shebang.neo"
+        "meta.shebang.neob"
       ],
       "settings": {
         "foreground": "#00ffff"
@@ -702,8 +702,8 @@
 
     {
       "scope": [
-        "comment.line.directive.neo",
-        "punctuation.definition.comment.directive.neo"
+        "comment.line.directive.neob",
+        "punctuation.definition.comment.directive.neob"
       ],
       "settings": {
         "foreground": "#0C2398"
@@ -711,7 +711,7 @@
     },
     {
       "scope": [
-        "meta.directive.neo"
+        "meta.directive.neob"
       ],
       "settings": {
         "foreground": "#7DBCEA"
@@ -722,8 +722,8 @@
 
     {
       "scope": [
-        "comment.line.canary-test.neo",
-        "punctuation.definition.comment.canary-test.neo"
+        "comment.line.canary-test.neob",
+        "punctuation.definition.comment.canary-test.neob"
       ],
       "settings": {
         "foreground": "#82880B"
@@ -731,7 +731,7 @@
     },
     {
       "scope": [
-        "meta.canary-test.neo"
+        "meta.canary-test.neob"
       ],
       "settings": {
         "foreground": "#ECF44C"
@@ -742,8 +742,8 @@
 
     {
       "scope": [
-        "comment.line.shell-lookup.neo",
-        "punctuation.definition.comment.shell-lookup.neo"
+        "comment.line.shell-lookup.neob",
+        "punctuation.definition.comment.shell-lookup.neob"
       ],
       "settings": {
         "foreground": "#6E6E6E"
@@ -751,7 +751,7 @@
     },
     {
       "scope": [
-        "meta.shell-lookup.neo"
+        "meta.shell-lookup.neob"
       ],
       "settings": {
         "foreground": "#AEAEAE"
@@ -805,9 +805,9 @@
 
     {
       "scope": [
-        "punctuation.definition.atom.tweet-tracing.neo",
-        "punctuation.definition.atom.tweet-tracing.begin.neo",
-        "punctuation.definition.atom.tweet-tracing.end.neo"
+        "punctuation.definition.atom.tweet-tracing.neob",
+        "punctuation.definition.atom.tweet-tracing.begin.neob",
+        "punctuation.definition.atom.tweet-tracing.end.neob"
       ],
       "settings": {
         "foreground": "#F3DC0B"
@@ -815,7 +815,7 @@
     },
     {
       "scope": [
-        "meta.tweet-tracing.neo"
+        "meta.tweet-tracing.neob"
       ],
       "settings": {
         "fontStyle": "italic",
@@ -824,12 +824,12 @@
     },
     {
       "scope": [
-        "punctuation.definition.atom.tweet-tracing.trace.neo",
-        "punctuation.definition.atom.tweet-tracing.debug.neo",
-        "punctuation.definition.atom.tweet-tracing.info.neo",
-        "punctuation.definition.atom.tweet-tracing.warn.neo",
-        "punctuation.definition.atom.tweet-tracing.error.neo",
-        "punctuation.definition.atom.tweet-tracing.fatal.neo"
+        "punctuation.definition.atom.tweet-tracing.trace.neob",
+        "punctuation.definition.atom.tweet-tracing.debug.neob",
+        "punctuation.definition.atom.tweet-tracing.info.neob",
+        "punctuation.definition.atom.tweet-tracing.warn.neob",
+        "punctuation.definition.atom.tweet-tracing.error.neob",
+        "punctuation.definition.atom.tweet-tracing.fatal.neob"
       ],
       "settings": {
         "foreground": "#25C3CB"
